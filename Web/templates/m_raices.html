@@ -1,22 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}Raices{% endblock %}
 
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/m_menu.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container mt-5">
     <div class="text-center">
-        <h1 class="display-4 fw-bold">¡Bienvenido a Raices!</h1>
-        <p class="lead">Explorá nuestros servicios, conocé más sobre nosotros y descubrí cómo podemos ayudarte.</p>
+      <h1 class="display-4 fw-bold">¡Metodos de Raices!</h1>
     </div>
-
     <hr class="col my-5">
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="{% url 'regula_falsi' %}" class="btn btn-primary btn-lg mt-3">regula falsi</a>
-        <a href="{% url 'biseccion' %}" class="btn btn-primary btn-lg mt-3">biseccion</a>
-        <a href="#" class="btn btn-primary btn-lg mt-3">Newton</a>
-        <a href="{% url 'secante' %}" class="btn btn-primary btn-lg mt-3">Secante</a>
+
+    <div class="d-grid gap-4 col-8 mx-auto">
+
+      <!-- Regula Falsi -->
+      <div>
+        <a href="{% url 'regula_falsi' %}" class="btn btn-primary w-100">Regula Falsi</a>
+        <button class="btn-toggle" onclick="toggleDescripcion('desc1')">¿Para qué sirve?</button>
+        <div id="desc1" class="descripcion">
+          El método de Regula Falsi se usa para encontrar raíces de funciones continuas, combinando el enfoque gráfico de la secante con la verificación del cambio de signo. Es eficiente para funciones que no cambian de forma drástica.
+        </div>
+      </div>
+
+      <!-- Bisección -->
+      <div>
+        <a href="{% url 'biseccion' %}" class="btn btn-primary w-100">Bisección</a>
+        <button class="btn-toggle" onclick="toggleDescripcion('desc2')">¿Para qué sirve?</button>
+        <div id="desc2" class="descripcion">
+          El método de Bisección divide un intervalo en mitades sucesivas para encontrar una raíz. Es simple, seguro y garantiza convergencia si la función cambia de signo en el intervalo.
+        </div>
+      </div>
+
+      <!-- Newton -->
+      <div>
+        <a href="{% url 'newton' %}" class="btn btn-primary w-100">Newton</a>
+        <button class="btn-toggle" onclick="toggleDescripcion('desc3')">¿Para qué sirve?</button>
+        <div id="desc3" class="descripcion">
+          El método de Newton (o Newton-Raphson) utiliza derivadas para aproximarse rápidamente a una raíz. Es muy rápido si se elige un buen punto inicial y la función es suave.
+        </div>
+      </div>
+
+      <!-- Secante -->
+      <div>
+        <a href="{% url 'secante' %}" class="btn btn-primary w-100">Secante</a>
+        <button class="btn-toggle" onclick="toggleDescripcion('desc4')">¿Para qué sirve?</button>
+        <div id="desc4" class="descripcion">
+          El método de la secante es una técnica iterativa para encontrar raíces de funciones, similar al de Newton pero sin necesidad de derivar, ya que usa una recta secante entre dos puntos.
+        </div>
+      </div>
+
     </div>
-
-
 
 </div>
-{% endblock%}
+{% endblock %}
+
+
+{% block extrascripts %}
+<script src="{% static 'scripts/m_menu.js' %}"></script>
+{% endblock %}

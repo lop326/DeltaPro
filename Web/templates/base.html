@@ -16,14 +16,14 @@
     <header>
         <nav class="navbar navbar-expand-lg" >
             <div class="container-fluid">
-              <a class="navbar-brand link-light" href="#">DeltaPro</a>
+              <a class="navbar-brand link-light" href="{% url 'home' %}">DeltaPro</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active link-light" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link active link-light" aria-current="page" href="{% url 'home' %}">Inicio</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link link-light" href="{% url 'ayuda' %}">Ayuda</a>
@@ -127,7 +127,7 @@
     {% endblock %}
 
     <footer class="text-light py-4 mt-5">
-      <div class="container">
+      <div class="container-footer">
           <div class="row">
               <div class="col-md-4 mb-3">
                   <h5>DeltaPro</h5>
@@ -136,21 +136,22 @@
               <div class="col-md-4 mb-3">
                   <h5>Enlaces útiles</h5>
                   <ul class="list-unstyled">
-                      <li><a href="#" class="text-light text-decoration-none">Inicio</a></li>
-                      <li><a href="#" class="text-light text-decoration-none">Sobre nosotros</a></li>
-                      <li><a href="#" class="text-light text-decoration-none">Servicios</a></li>
-                      <li><a href="#" class="text-light text-decoration-none">Contacto</a></li>
+                      <li><a href="{% url 'home' %}" class="text-light text-decoration-none">Inicio</a></li>
+                      <li><a href="{% url 'nosotros' %}" class="text-light text-decoration-none">Sobre nosotros</a></li>
+                      <li><a href="{% url 'ayuda' %}" class="text-light text-decoration-none">Soporte</a></li>
+                      
                   </ul>
               </div>
               <div class="col-md-4 mb-3">
                   <h5>Contacto</h5>
                   <p><i class="bi bi-geo-alt-fill"></i> Av. Ex Combatientes de Malvinas 3571, Salta Capital</p>
-                  <p><i class="bi bi-envelope-fill"></i> contacto@sunvoyage.com</p>
+                  <p><i class="bi bi-envelope-fill"></i> DeltaPro@gmail.com</p>
                   <p><i class="bi bi-telephone-fill"></i> +54 387 123-4567</p>
               </div>
           </div>
       </div>
   </footer>
-<script src="{% static '/scripts/base.js' %}"></script>
+
+  <script src="{% static '/scripts/base.js' %}"></script>
 </body>
 </html>

@@ -19,7 +19,8 @@ urlpatterns = [
     path('secante/', views.secante ,name='secante'),
     path('biseccion/', views.biseccion ,name='biseccion'),
     path('regula_falsi/', views.regula_falsi ,name='regula_falsi'),
-    path('jacobi/', views.jacobi ,name='jacobi')
+    path('jacobi/', views.jacobi ,name='jacobi'),
+    path('newton/', views.newton ,name='newton'),
 
 ]
 

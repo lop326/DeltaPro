@@ -1,0 +1,112 @@
+:root {
+  --color-claro: #F7F7F7;
+  --color-gris-azulado: #C9D1D3;
+  --color-celeste: #9DD3DF;
+  --color-oscuro: #3B3737;
+  --color-rojo: #991818;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, var(--color-gris-azulado), var(--color-celeste));
+  color: var(--color-oscuro);
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: var(--color-claro);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-oscuro);
+}
+
+input, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--color-gris-azulado);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input {
+  background-color: var(--color-claro);
+  color: var(--color-oscuro);
+}
+
+button {
+  background-color: var(--color-celeste);
+  color: var(--color-oscuro);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-gris-azulado);
+  transform: scale(1.02);
+}
+
+.hidden {
+  display: none;
+}
+
+#resultado {
+  margin-top: 20px;
+  background-color: var(--color-gris-azulado);
+  padding: 15px;
+  border-radius: 10px;
+  white-space: pre-line;
+  color: var(--color-oscuro);
+  font-weight: 500;
+}
+
+.calculadora {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.calculadora button {
+  color: var(--color-oscuro);
+  min-width: 70px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1.5px solid var(--color-celeste);
+  border-radius: 8px;
+  background-color: var(--color-claro);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.calculadora button:hover {
+  background-color: var(--color-celeste);
+  transform: scale(1.05);
+}
+
+/* Botón especial de borrar (por ejemplo) */
+.calculadora .borrar {
+  background-color: var(--color-rojo);
+  color: white;
+  border: none;
+}
+
+.calculadora .borrar:hover {
+  background-color: #b52222;
+}

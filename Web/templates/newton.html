@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Método de Newton-Raphson</title>
+  <link rel="stylesheet" href="{% static 'css/newton.css' %}" />
+</head>
+<body>
+  <main class="container">
+    <h1>Método de Newton-Raphson</h1>
+    
+    <label for="variable">Variable:</label>
+    <input type="text" id="variable" placeholder="Ej: x" />
+    <button onclick="validarVariable()">Siguiente</button>
+
+    <div id="funcion-section" class="hidden">
+      <div class="calculadora">
+        <button onclick="insertarFuncion('sin(x)')">sin</button>
+        <button onclick="insertarFuncion('cos(x)')">cos</button>
+        <button onclick="insertarFuncion('tan(x)')">tan</button>
+        <button onclick="insertarFuncion('log(x)')">log</button>
+        <button onclick="insertarFuncion('sqrt(x)')">√</button>
+        <button onclick="insertarFuncion('exp(x)')">exp</button>
+        <button onclick="insertarFuncion('^')">^</button>
+        <button onclick="insertarFuncion('pi')">π</button>
+        <button class="borrar" onclick="limpiarFuncion()">🗑 Limpiar</button>
+      </div>
+      <p>Ingrese la función con esta sintaxis:</p>
+      <ul>
+        <li>Ej: <code>x**2 + 1</code>, <code>sin(x)/x</code>, <code>log(x+1)</code>, <code>sqrt(2*x)</code></li>
+        <li>Use <code>**</code> (no ^), <code>sin</code> (no sen), <code>log</code> (no ln)</li>
+      </ul>
+      <input type="text" id="funcion" placeholder="Ej: x**2 - 4" />
+      <button onclick="procesarFuncion()">Procesar función</button>
+    </div>
+
+    <div id="config-section" class="hidden">
+      <p id="valor-inicial-msg"></p>
+      <label for="ajustar">¿Ajustar tolerancia e iteraciones? (s/n):</label>
+      <input type="text" id="ajustar" maxlength="1" placeholder="s o n" />
+      <button onclick="ajustarParametros()">Confirmar</button>
+    </div>
+
+    <div id="parametros-section" class="hidden">
+      <label for="tolerancia">Tolerancia:</label>
+      <input type="number" step="any" id="tolerancia" placeholder="Ej: 0.0001" />
+      <label for="max_iter">Máximo de iteraciones:</label>
+      <input type="number" id="max_iter" placeholder="Ej: 100" />
+      <button onclick="iniciarMetodo()">Iniciar método</button>
+    </div>
+
+    <div id="resultado"></div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+  <script src="{% static 'scripts/newton.js' %}"></script>
+</body>
+</html>

@@ -113,3 +113,7 @@ def regula_falsi(request):
 @login_required
 def jacobi(request):
     return render(request, 'jacobi.html')
+
+@login_required
+def newton(request):
+    return render(request, 'newton.html')

@@ -70,7 +70,9 @@ header,footer{
     background-color: var(--color-rojo);
     color: #F7F7F7;
 }
-
+footer{
+    padding: 20px;
+}
 
 
 nav a{

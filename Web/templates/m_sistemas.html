@@ -1,22 +1,62 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}Sistemas{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/m_menu.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
     <div class="text-center">
-        <h1 class="display-4 fw-bold">¡Bienvenido a Sistemas!</h1>
-        <p class="lead">Explorá nuestros servicios, conocé más sobre nosotros y descubrí cómo podemos ayudarte.</p>
-    </div>
-
-    <hr class="my-5">
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="{% url 'gauss' %}" class="btn btn-primary btn-lg">Gauss</a>
-        <a href="{% url 'gauss_jordan' %}" class="btn btn-primary btn-lg">Gauss Jordan</a>
-        <a href="{% url 'gauss_seidel' %}" class="btn btn-primary btn-lg">Gauss Seidel</a>
-        <a href="{% url 'jacobi' %}" class="btn btn-primary btn-lg">Jacobi</a>
-
-    </div>
-
+        <h1 class="display-4 fw-bold">Metodos de Sistemas de ecuaciones</h1>
+      </div>
+  
+      <hr class="my-5">
+  
+      <div class="d-grid gap-4 col-8 mx-auto">
+  
+        <!-- Gauss -->
+        <div>
+          <a href="{% url 'gauss' %}" class="btn btn-primary w-100">Gauss</a>
+          <button class="btn-toggle" onclick="toggleDescripcion('desc1')">¿Para qué sirve?</button>
+          <div id="desc1" class="descripcion">
+            El método de Gauss (eliminación gaussiana) transforma un sistema de ecuaciones lineales en una forma escalonada, permitiendo resolverlo por sustitución hacia atrás. Es útil para sistemas pequeños o medianos.
+          </div>
+        </div>
+  
+        <!-- Gauss-Jordan -->
+        <div>
+          <a href="{% url 'gauss_jordan' %}" class="btn btn-primary w-100">Gauss Jordan</a>
+          <button class="btn-toggle" onclick="toggleDescripcion('desc2')">¿Para qué sirve?</button>
+          <div id="desc2" class="descripcion">
+            El método de Gauss-Jordan extiende el de Gauss al llevar la matriz a su forma reducida por filas. Permite obtener directamente la solución sin pasos adicionales de sustitución.
+          </div>
+        </div>
+  
+        <!-- Gauss-Seidel -->
+        <div>
+          <a href="{% url 'gauss_seidel' %}" class="btn btn-primary w-100">Gauss Seidel</a>
+          <button class="btn-toggle" onclick="toggleDescripcion('desc3')">¿Para qué sirve?</button>
+          <div id="desc3" class="descripcion">
+            El método de Gauss-Seidel es un método iterativo que mejora progresivamente una solución inicial. Es útil para sistemas grandes o dispersos, especialmente en ingeniería.
+          </div>
+        </div>
+  
+        <!-- Jacobi -->
+        <div>
+          <a href="{% url 'jacobi' %}" class="btn btn-primary w-100">Jacobi</a>
+          <button class="btn-toggle" onclick="toggleDescripcion('desc4')">¿Para qué sirve?</button>
+          <div id="desc4" class="descripcion">
+            El método de Jacobi es un algoritmo iterativo que resuelve sistemas de ecuaciones lineales, útil cuando el sistema es grande y la matriz es diagonalmente dominante.
+          </div>
+        </div>
+  
+      </div>
 
 </div>
-{% endblock%}
+{% endblock %}
+{% block extrascripts %}
+<script src="{% static 'scripts/m_menu.js' %}"></script>
+{% endblock %}
