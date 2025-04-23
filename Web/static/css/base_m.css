@@ -1,0 +1,39 @@
+:root {
+    --color-claro: #F7F7F7;
+    --color-gris-azulado: #C9D1D3;
+    --color-celeste: #9DD3DF;
+    --color-oscuro: #3B3737;
+    --color-rojo: #991818;
+  }
+body{
+    background-color: var(--color-claro);
+    color: var(--color-oscuro);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.offcanvas-body .btn {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.offcanvas-footer{
+    padding: 16px;
+}
+.offcanvas-footer .btn{
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+header{
+    background-color: var(--color-rojo);
+    color: #F7F7F7;
+}
+
+
+

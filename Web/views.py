@@ -117,3 +117,4 @@ def jacobi(request):
 @login_required
 def newton(request):
     return render(request, 'newton.html')
+

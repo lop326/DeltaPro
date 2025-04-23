@@ -1,14 +1,4 @@
-/* Estilo general */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: repeating-linear-gradient(45deg, #28a745, transparent 20px, #008080 20px, #008080 40px);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    position: relative; /* Asegura que los elementos flotantes se posicionen correctamente */
-}
+
 
 .background {
     position: fixed;
@@ -50,7 +40,7 @@ body {
     }
   }
 
-.container {
+.container-biseccion {
     width: 80%;
     max-width: 900px;
     margin: 20px auto;
@@ -86,7 +76,7 @@ input[type="number"] {
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Cambria Math', serif;
+    
 }
 
 button {
@@ -121,7 +111,6 @@ button:hover {
 
 
 .result {
-    font-family:Arial, Helvetica, sans-serif;
     font-size: 30px;
     /*background-color: #dee7e7;*/
     color: #dee7ed;
@@ -138,7 +127,6 @@ button:hover {
 
 #log {
     margin-top: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 16px;
     padding: 10px;
     border-radius: 4px;

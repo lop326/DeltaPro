@@ -6,7 +6,7 @@
   --color-rojo: #991818;
 }
 
-body {
+.body-newton {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to right, var(--color-gris-azulado), var(--color-celeste));
   color: var(--color-oscuro);
@@ -17,7 +17,7 @@ body {
   margin: 0;
 }
 
-.container {
+.container-newton {
   background: var(--color-claro);
   padding: 30px;
   border-radius: 20px;
@@ -32,7 +32,7 @@ h1 {
   color: var(--color-oscuro);
 }
 
-input, button {
+.input-newton, .btn-newton {
   display: block;
   width: 100%;
   margin: 10px 0;
@@ -43,12 +43,12 @@ input, button {
   box-sizing: border-box;
 }
 
-input {
+.input-newton {
   background-color: var(--color-claro);
   color: var(--color-oscuro);
 }
 
-button {
+.btn-newton {
   background-color: var(--color-celeste);
   color: var(--color-oscuro);
   font-weight: bold;
@@ -56,7 +56,7 @@ button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+.btn-newton:hover {
   background-color: var(--color-gris-azulado);
   transform: scale(1.02);
 }
@@ -82,7 +82,7 @@ button:hover {
   margin-bottom: 15px;
 }
 
-.calculadora button {
+.calculadora .btn-newton {
   color: var(--color-oscuro);
   min-width: 70px;
   padding: 10px;
@@ -95,7 +95,7 @@ button:hover {
   white-space: nowrap;
 }
 
-.calculadora button:hover {
+.calculadora .btn-newton:hover {
   background-color: var(--color-celeste);
   transform: scale(1.05);
 }

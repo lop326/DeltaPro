@@ -188,7 +188,7 @@
   
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = `
-      <h2>Ejercicio Resuelto</h2>
+      <h2>Ejercicios Resueltos</h2>
       <p><strong>Fecha:</strong> ${fechaStr} - <strong>Hora:</strong> ${horaStr}</p>
     `;
   
