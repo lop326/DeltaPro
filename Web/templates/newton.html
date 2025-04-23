@@ -6,13 +6,15 @@
 <link rel="stylesheet" href="{% static 'css/newton.css' %}" />
 {% endblock %}
 {% block content %}
+
 <div class="body-newton">
-<div class="container-newton">
-    <h1>Método de Newton Raphson</h1>
-  
-    <label for="variable">Variable:</label>
-    <input type="text" id="variable" placeholder="Ej: x" />
-    <button class="btn-newton" onclick="validarVariable()">Siguiente</button>
+
+  <div class="container-newton">
+    <h1>Método de Newton-Raphson</h1>
+    
+    <label>Variable:</label>
+    <input type="text" id="variable" />
+    <button class="btn-newton"  onclick="validarVariable()">Siguiente</button>
   
     <div id="funcion-section" class="hidden">
       <div class="calculadora">
@@ -24,37 +26,40 @@
         <button class="btn-newton" onclick="insertarFuncion('exp(x)')">exp</button>
         <button class="btn-newton" onclick="insertarFuncion('^')">^</button>
         <button class="btn-newton" onclick="insertarFuncion('pi')">π</button>
-        <button class="borrar" onclick="limpiarFuncion()">🗑 Limpiar</button>
-      </div>
+        <button class="btn-newton" onclick="limpiarFuncion()">🗑 Limpiar</button>
+    </div>
       <p>Ingrese la función con esta sintaxis:</p>
       <ul>
         <li>Ej: <code>x**2 + 1</code>, <code>sin(x)/x</code>, <code>log(x+1)</code>, <code>sqrt(2*x)</code></li>
         <li>Use <code>**</code> (no ^), <code>sin</code> (no sen), <code>log</code> (no ln)</li>
       </ul>
-      <input type="text" id="funcion" placeholder="Ej: x**2 - 4" />
+      <input type="text" id="funcion" />
       <button class="btn-newton" onclick="procesarFuncion()">Procesar función</button>
     </div>
   
     <div id="config-section" class="hidden">
       <p id="valor-inicial-msg"></p>
-      <label for="ajustar">¿Ajustar tolerancia e iteraciones? (s/n):</label>
-      <input type="text" id="ajustar" maxlength="1" placeholder="s o n" />
+      <label>¿Ajustar tolerancia e iteraciones? (s/n):</label>
+      <input type="text" id="ajustar" maxlength="1" />
       <button class="btn-newton" onclick="ajustarParametros()">Confirmar</button>
     </div>
   
     <div id="parametros-section" class="hidden">
-      <label for="tolerancia">Tolerancia:</label>
-      <input type="number" step="any" id="tolerancia" placeholder="Ej: 0.0001" />
-      <label for="max_iter">Máximo de iteraciones:</label>
-      <input type="number" id="max_iter" placeholder="Ej: 100" />
+      <label>Tolerancia:</label>
+      <input type="number" step="any" id="tolerancia" />
+      <label>Máximo de iteraciones:</label>
+      <input type="number" id="max_iter" />
       <button class="btn-newton" onclick="iniciarMetodo()">Iniciar método</button>
     </div>
   
     <div id="resultado"></div>
-
-  </div>
-</div>
+    <canvas id="graficoFuncion" width="600" height="400"></canvas>
+    
   
+  </div>
+    
+</div>
+
 
 
     
@@ -62,5 +67,6 @@
 
 {% block extrascripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{% static 'scripts/newton.js' %}"></script>
 {% endblock %}

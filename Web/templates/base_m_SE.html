@@ -15,7 +15,7 @@
     {% endblock %}
     
 </head> 
-<body>
+<body {% block body_tag %}{% endblock %}>
   <!-- HEADER / NAVBAR -->
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -48,10 +48,10 @@
                     </ul>
               </div>
                 
-              <p class="text-body-secondary me-2 mb-lg-0 h5">Menu</p>
+              <p class="text-body-light me-2 mb-lg-0 h5">Menu</p>
               {% if request.user.is_authenticated %}
               <!-- Botón para abrir el menú -->
-              <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style="width: auto;">
+              <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style="width: auto;">
                   <i class="bi bi-list"></i>
               </button>                  
           

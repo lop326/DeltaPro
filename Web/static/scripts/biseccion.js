@@ -136,5 +136,3 @@ function dibujarGrafico(funcStr, a, b, raiz) {
         yaxis: { title: "f(x)" }
     });
 }
-
-

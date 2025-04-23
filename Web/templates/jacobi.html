@@ -1,16 +1,44 @@
 {% extends 'base_m_SE.html' %}
 {% load static %}
-{% block title %}prueba{% endblock %}
+{% block title %}Jacobi{% endblock %}
 
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/gauss.css' %}">
 {% endblock %}
+
 {% block content %}
+<h1>Método de Jacobi</h1>
+<div class="contenedor">
+  <label for="tamano">Seleccioná la cantidad de incógnitas:</label>
+  <select id="tamano" onchange="crearTabla()">
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 
+  <form id="jacobi-form">
+    <div id="tablaInputs"></div>
+    <label for="error" class="form-label mt-3">Error:</label>
+    <input type="text" id="error" class="form-control" placeholder="Ej: 1e-6">
 
+    <div class="d-flex justify-content-center gap-2 mt-3">
+      <button type="submit" class="btn btn-primary">Calcular</button>
+      <button type="button" class="btn btn-outline-danger" onclick="limpiarR()">Limpiar</button>
+    </div>
+  </form>
 
+  <div id="resultado" class="resultado mt-4"></div>
+
+  <div class="mb-3 mt-4">
+    <label for="comentario" class="form-label">
+      <strong>Comentario del usuario:</strong>
+    </label>
+    <textarea class="form-control" id="comentario" rows="3" placeholder="Escribí tus observaciones aquí..."></textarea>
+  </div>
+</div>
 {% endblock %}
 
 {% block extrascripts %}
-<script src="{% static 'scripts/gauss.js' %}"></script>
+<script src="{% static 'scripts/Jacobi.js' %}"></script>
 {% endblock %}

@@ -65,6 +65,9 @@ function procesarFuncion() {
     }
 
     buscarValorInicial();
+    graficarFuncion();
+    
+
   } catch (e) {
     alert("Error en la función ingresada. Revisar sintaxis.");
   }
@@ -94,14 +97,15 @@ function buscarValorInicial() {
 
 function ajustarParametros() {
   const opc = document.getElementById("ajustar").value.trim().toLowerCase();
-  if (opc === "s", "si") {
+  if (opc === "s" || opc === "si") {
     mostrar("parametros-section");
-  } else if (opc === "n" , "no") {
+  } else if (opc === "n" || opc === "no") {
     iniciarMetodo();
   } else {
     alert("Entrada inválida. Escriba 's' o 'n'.");
   }
 }
+
 
 function iniciarMetodo() {
   const tolInput = document.getElementById("tolerancia");
@@ -134,4 +138,53 @@ function iniciarMetodo() {
   }
 
   document.getElementById("resultado").innerText = resultados.join("\n");
+ 
+
+
+}
+function graficarFuncion() {
+  if (!func) return;
+
+  const xValues = [];
+  const yValues = [];
+  for (let x = -10; x <= 10; x += 0.1) {
+    try {
+      xValues.push(x);
+      yValues.push(func(x));
+    } catch {
+      xValues.push(x);
+      yValues.push(null);
+    }
+  }
+
+  const ctx = document.getElementById("graficoFuncion").getContext("2d");
+  if (window.grafico) {
+    window.grafico.destroy(); // Evita superponer gráficos
+  }
+
+  window.grafico = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [{
+        label: "f(x)",
+        data: yValues,
+        borderColor: "blue",
+        borderWidth: 2,
+        fill: false,
+        pointRadius: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          title: { display: true, text: variable }
+        },
+        y: {
+          title: { display: true, text: "f(x)" }
+        }
+      }
+    }
+  });
 }

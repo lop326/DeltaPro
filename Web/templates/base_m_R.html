@@ -15,7 +15,7 @@
     {% endblock %}
     
 </head> 
-<body>
+<body">
   <!-- HEADER / NAVBAR -->
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -70,7 +70,7 @@
                   <div class="offcanvas-body">
                       <h6>Opciones de datos:</h6>
                       <!-- Botón para descargar el ejercicio -->
-                      <button class="btn btn-outline-primary mb-3" onclick="descargarEjercicioPDF()">
+                      <button class="btn btn-outline-primary mb-3" onclick="descargarMetodoPDF()">
                         <i class="bi bi-download"></i> Descargar ejercicio
                       </button>
 
@@ -106,7 +106,7 @@
           
     
     </header>
-    <main>
+    <main">
       {% block content %}
 
       {% endblock %}
@@ -126,11 +126,11 @@
         </div>
       </div>
     </main>
- 
+    {% block extrascripts %}
+    {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="{% static 'scripts/logica_carpetas.js' %}"></script>
-    {% block extrascripts %}
-    {% endblock %}
+
 </body>
 </html>

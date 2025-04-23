@@ -1,20 +1,71 @@
-// ✅ Verifica si la matriz A es diagonalmente dominante
+function crearTabla() {
+    const n = parseInt(document.getElementById('tamano').value);
+    const contenedor = document.getElementById('tablaInputs');
+    contenedor.innerHTML = '';
+  
+    for (let i = 0; i < n; i++) {
+      let fila = document.createElement('div');
+      fila.className = 'fila';
+  
+      for (let j = 0; j < n; j++) {
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.id = `a_${i}_${j}`;
+        input.step = 'any';
+        input.placeholder = `a${i+1}${j+1}`;
+        fila.appendChild(input);
+      }
+  
+      const igual = document.createElement('label');
+      igual.innerText = '=';
+      fila.appendChild(igual);
+  
+      const inputB = document.createElement('input');
+      inputB.type = 'number';
+      inputB.id = `b_${i}`;
+      inputB.step = 'any';
+      inputB.placeholder = `b${i+1}`;
+      fila.appendChild(inputB);
+  
+      contenedor.appendChild(fila);
+    }
+  }
+  function obtenerDatos() {
+    const n = parseInt(document.getElementById('tamano').value);
+    let A = [], B = [];
+
+    for (let i = 0; i < n; i++) {
+        let fila = [];
+        for (let j = 0; j < n; j++) {
+            const val = document.getElementById(`a_${i}_${j}`).value;
+            fila.push(parseFloat(val) || 0);
+        }
+        A.push(fila);
+
+        const bVal = document.getElementById(`b_${i}`).value;
+        B.push(parseFloat(bVal) || 0);
+    }
+
+    const error = document.getElementById("error").value;
+    return { A, B, error };
+}
+
+
+
+// === VALIDACIONES ===
+
+
 function esDiagonalDominante(A) {
     for (let i = 0; i < A.length; i++) {
         let suma = 0;
         for (let j = 0; j < A.length; j++) {
-            if (j !== i) {
-                suma += Math.abs(A[i][j]);
-            }
+            if (j !== i) suma += Math.abs(A[i][j]);
         }
-        if (Math.abs(A[i][i]) <= suma) {
-            return false;  // No cumple con la condición de dominancia
-        }
+        if (Math.abs(A[i][i]) <= suma) return false;
     }
     return true;
 }
 
-// ✅ Verifica si todos los elementos de la matriz son numéricos
 function esMatrizNumerica(A) {
     for (let i = 0; i < A.length; i++) {
         for (let j = 0; j < A[i].length; j++) {
@@ -26,7 +77,6 @@ function esMatrizNumerica(A) {
     return true;
 }
 
-// ✅ Verifica si todos los elementos del vector b son numéricos
 function esVectorNumerico(b) {
     for (let i = 0; i < b.length; i++) {
         if (isNaN(parseFloat(b[i]))) {
@@ -36,7 +86,6 @@ function esVectorNumerico(b) {
     return true;
 }
 
-// ✅ Verifica si el valor del error es numérico y positivo
 function esErrorValido(error) {
     let num = parseFloat(error);
     if (isNaN(num) || num <= 0) {
@@ -47,102 +96,144 @@ function esErrorValido(error) {
     return true;
 }
 
-// ✅ Método de Jacobi como tal
+// === MÉTODO DE JACOBI ===
+
 function metodoJacobi(A, b, error, continuarSiNoDominante = false) {
-    // Validación de entradas
     esMatrizNumerica(A);
     esVectorNumerico(b);
     esErrorValido(error);
 
-    // Convertir todos los valores a números reales
     A = A.map(fila => fila.map(Number));
     b = b.map(Number);
     error = parseFloat(error);
 
     const n = A.length;
+    if (!A.every(fila => fila.length === n)) throw new Error("La matriz A no es cuadrada.");
+    if (b.length !== n) throw new Error("El tamaño del vector b no coincide con las dimensiones de A.");
+    if (A.some((fila, i) => fila[i] === 0)) throw new Error("La matriz A contiene ceros en su diagonal.");
 
-    // Verifica que la matriz sea cuadrada
-    if (!A.every(fila => fila.length === n)) {
-        throw new Error("La matriz A no es cuadrada.");
-    }
-
-    // Verifica que b tenga dimensiones compatibles
-    if (b.length !== n) {
-        throw new Error("El tamaño del vector b no coincide con las dimensiones de A.");
-    }
-
-    // Verifica que no haya ceros en la diagonal
-    if (A.some((fila, i) => fila[i] === 0)) {
-        throw new Error("La matriz A contiene ceros en su diagonal. No se puede aplicar el método.");
-    }
-
-    // Verifica la diagonal dominante. Si no lo es, permite continuar solo si está habilitado
     let maxIter = null;
     if (!esDiagonalDominante(A)) {
-        if (!continuarSiNoDominante) {
-            throw new Error("⚠️ La matriz no es diagonalmente dominante.");
-        }
-        maxIter = 1000;  // Establece un límite si se continúa igual
+        if (!continuarSiNoDominante) throw new Error("⚠️ La matriz no es diagonalmente dominante.");
+        maxIter = 1000;
     }
 
-    // Inicializa el vector solución y otras variables
-    let x = Array(n).fill(0);         // Solución actual
-    let xAnterior = Array(n).fill(0); // Solución anterior
+    let xAnterior = Array(n).fill(0);
     let iteraciones = 0;
     let errorPrevio = Infinity;
+    const historial = [];
 
-    // Muestra encabezado de la tabla
-    console.log("Iteración |  Error             | Vector x");
-    console.log("-------------------------------------------------------------");
-
-    // 🔁 Iteraciones del método
     while (true) {
         let nuevoX = Array(n).fill(0);
-
-        // Recorre las filas para actualizar cada componente del vector x
         for (let i = 0; i < n; i++) {
             let suma = 0;
             for (let j = 0; j < n; j++) {
-                if (j !== i) {
-                    suma += A[i][j] * xAnterior[j];
-                }
+                if (j !== i) suma += A[i][j] * xAnterior[j];
             }
-            nuevoX[i] = (b[i] - suma) / A[i][i];  // Fórmula de Jacobi
+            nuevoX[i] = (b[i] - suma) / A[i][i];
         }
 
-        // Calcula el error (norma infinito)
         let err = Math.max(...nuevoX.map((val, idx) => Math.abs(val - xAnterior[idx])));
+        historial.push({
+            iter: iteraciones,
+            error: err,
+            vector: [...nuevoX]
+        });
 
-        // Muestra el resultado de esta iteración
-        console.log(`${iteraciones.toString().padStart(9)} | ${err.toExponential(2)}          | [${nuevoX.map(v => v.toFixed(6)).join(", ")}]`);
+        if (err < error) return { solucion: nuevoX, iteraciones, historial, mensaje: "✅ Convergencia alcanzada." };
+        if (maxIter !== null && iteraciones >= maxIter) return { solucion: nuevoX, iteraciones, historial, mensaje: `❌ Límite de ${maxIter} iteraciones alcanzado.` };
+        if (iteraciones > 1 && Math.abs(errorPrevio - err) < 1e-10) return { solucion: nuevoX, iteraciones, historial, mensaje: "⚠️ El error no disminuye significativamente." };
 
-        // ✅ Criterio de parada: error aceptable
-        if (err < error) {
-            console.log("\n✅ El error se ha reducido, el método de Jacobi ha convergido correctamente.");
-            return [nuevoX, iteraciones];
-        }
-
-        // ❌ Criterio de parada: demasiadas iteraciones
-        if (maxIter !== null && iteraciones >= maxIter) {
-            console.log(`❌ Se alcanzó el límite de ${maxIter} iteraciones. El método podría no haber convergido.`);
-            return [nuevoX, iteraciones];
-        }
-
-        // ⚠️ Criterio de parada: el error no mejora significativamente
-        if (iteraciones > 1 && Math.abs(errorPrevio - err) < 1e-10) {
-            console.log("⚠️ El error no está disminuyendo significativamente. El método podría no estar convergiendo.");
-            return [nuevoX, iteraciones];
-        }
-
-        // Prepara para la siguiente iteración
         xAnterior = [...nuevoX];
         iteraciones++;
         errorPrevio = err;
     }
 }
 
-// 🔁 Exportar las funciones para que se puedan usar desde otros archivos (por ejemplo, desde un archivo de pruebas)
-module.exports = {
-    metodoJacobi,
-    esErrorValido
-};
+// === MANEJO DEL FORMULARIO EN LA WEB ===
+
+document.getElementById("jacobi-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const salida = document.getElementById("resultado");
+    salida.textContent = ""; // Limpiar resultados previos
+
+    try {
+        // Llamar a la función obtenerDatos para obtener los valores de A, B y el error
+        const { A, B, error } = obtenerDatos();
+
+        // Llamada a la función metodoJacobi
+        const resultado = metodoJacobi(A, B, error);
+
+        salida.style.display = "block"; // Mostrar div de resultados
+
+        // Mostrar mensaje general (éxito o advertencia)
+        salida.innerHTML += `<p><strong>${resultado.mensaje}</strong></p><br>`;
+
+        // Mostrar las iteraciones
+        resultado.historial.forEach(i => {
+            salida.innerHTML += `
+                <p>Iteración ${i.iter.toString().padStart(3)} | Error: ${i.error.toExponential(2)} | 
+                x = [${i.vector.map(v => v.toFixed(6)).join(", ")}]</p>
+            `;
+        });
+
+        // Mostrar la solución final
+        salida.innerHTML += `<p>✅ Solución encontrada en ${resultado.iteraciones} iteraciones:</p>`;
+        resultado.solucion.forEach((val, i) => {
+            salida.innerHTML += `<p>x${i + 1} = ${val.toFixed(6)}</p>`;
+        });
+    } catch (err) {
+        salida.style.display = "block";
+        salida.textContent = `❌ Error: ${err.message}`;
+    }
+});
+
+
+//FUNCION PARA EL BOTON LIMPIAR
+function limpiarR() {
+    // Limpiar todos los inputs generados de la matriz A y vector B
+    const inputs = document.querySelectorAll('#tablaInputs input');
+    inputs.forEach(input => input.value = '');
+
+    // Limpiar campo de error
+    document.getElementById("error").value = "";
+
+    // Limpiar comentario
+    document.getElementById("comentario").value = "";
+
+    // Limpiar resultado
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = "";
+}
+
+//FUNCION PARA EL BOTON CALCULAR
+function Calcular() {
+    const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.textContent = ""; // Limpiar resultados previos
+
+    try {
+        const { A, B, error } = obtenerDatos();
+        const resultado = metodoJacobi(A, B, error);
+
+        resultadoDiv.style.display = "block";
+
+        resultadoDiv.innerHTML += `<p><strong>${resultado.mensaje}</strong></p><br>`;
+
+        resultado.historial.forEach(i => {
+            resultadoDiv.innerHTML += `
+                <p>Iteración ${i.iter.toString().padStart(3)} | Error: ${i.error.toExponential(2)} | 
+                x = [${i.vector.map(v => v.toFixed(6)).join(", ")}]</p>
+            `;
+        });
+
+        resultadoDiv.innerHTML += `<p>✅ Solución encontrada en ${resultado.iteraciones} iteraciones:</p>`;
+        resultado.solucion.forEach((val, i) => {
+            resultadoDiv.innerHTML += `<p>x${i + 1} = ${val.toFixed(6)}</p>`;
+        });
+
+    } catch (e) {
+        resultadoDiv.style.display = "block";
+        resultadoDiv.textContent = `❌ Error: ${e.message}`;
+    }
+}

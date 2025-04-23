@@ -5,6 +5,7 @@
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/biseccion.css' %}">
 {% endblock %}
+{% block metodo %}biseccion{% endblock %}
 {% block content %}
 <div class="background">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -61,11 +62,12 @@
   </main>
   <section id="grafico" style="height: 400px;"></section>
 </div>
-    
+
 {% endblock %}
 
 {% block extrascripts %}
 <script src="{% static 'scripts/biseccion.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 {% endblock %}

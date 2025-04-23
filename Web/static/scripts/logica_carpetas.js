@@ -215,4 +215,58 @@
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     }).from(tempDiv).save();
   }
-  
+
+
+function descargarMetodoPDF() {
+    const metodo = document.querySelector('body').getAttribute('data-metodo');
+    console.log(metodo);  
+    switch (metodo) {
+        case 'biseccion':
+            descargarBiseccion();
+            break;
+
+        default:
+            alert('No se reconoce el método para la descarga.');
+    }
+}
+
+function descargarBiseccion(){
+  console.log("funcion llamada")
+  const funcion = document.getElementById('funcion').value;
+  const a = document.getElementById('a').value;
+  const b = document.getElementById('b').value;
+  const resultado = document.getElementById('result').innerText;
+  const iteraciones = document.getElementById('log').innerText;
+  const grafico = document.getElementById('grafico');
+
+  const contenido = document.createElement('div');
+  contenido.style.padding = '20px';
+  contenido.style.fontFamily = 'Arial, sans-serif';
+  contenido.innerHTML = `
+      <h2>Método de Bisección</h2>
+      <p><strong>Función:</strong> ${funcion}</p>
+      <p><strong>Intervalo:</strong> a = ${a}, b = ${b}</p>
+      <p><strong>Resultado:</strong> ${resultado}</p>
+      <h3>Iteraciones:</h3>
+      <pre style="white-space: pre-wrap;">${iteraciones}</pre>
+  `;
+
+  html2canvas(grafico).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const img = new Image();
+      img.src = imgData;
+      img.style.maxWidth = '100%';
+      contenido.appendChild(img);
+
+      html2pdf()
+          .from(contenido)
+          .set({
+              margin: 0.5,
+              filename: 'biseccion_resultado.pdf',
+              image: { type: 'jpeg', quality: 0.98 },
+              html2canvas: { scale: 2 },
+              jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+          })
+          .save();
+  });
+}
