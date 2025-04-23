@@ -1,0 +1,92 @@
+/* Fondo completo */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+/* Contenedor del formulario */
+.content_register {
+    background: rgba(4, 124, 124, 0.397);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    width: 520px;
+    padding: 35px 50px;
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Títulos de secciones */
+.register_user h2,
+.dates_personal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+}
+
+/* Inputs */
+.inputs {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: black;
+    font-size: 15px;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.inputs::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.inputs:focus {
+    background-color: rgba(92, 30, 236, 0.25);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Botón de registrar */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #303f9f;
+    transform: scale(1.02);
+}
+
+/* Error */
+.error-message {
+    background-color: rgba(255, 0, 0, 0.15);
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffcccc;
+    font-weight: bold;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+

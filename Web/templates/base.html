@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/css/base.css">
+    {% block extracss %}
+    
+    {% endblock %}
+</head> 
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" >
+            <div class="container-fluid">
+              <a class="navbar-brand link-light" href="#">DeltaPro</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active link-light" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-light" href="{% url 'ayuda' %}">Ayuda</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle link-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Recursos
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'raices' %}" >Raices de funciones</a></li>
+                      <li><a class="dropdown-item" href="{% url 'sistemas' %}">Sistemas de ecuaciones</a></li>
+              
+                    </ul>
+                  </li>
+                 
+                </ul>
+                
+
+              {% if request.user.is_authenticated %}
+              <!-- usuario en header -->                
+                <a href="" class="d-flex align-items-center text-decoration-none me-2 mb-lg-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                  <p class=" h5 mb-0">¡Hola {{ request.user.first_name }}!</p>
+                  <i class="bi bi-person-circle me-1 h3 mb-0 ms-2"></i>
+                  
+                </a>
+              {% endif %}
+            </div>
+          </nav>
+          <!-- Menú desplegable  -->
+            
+          <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="width:320px;">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                      <div class="photo-user">
+                        <i class="bi bi-person-circle bi-user-config"></i>
+                      </div>
+                      
+                      <div class="dates-container">
+                        <form action="{% url 'actualizar_perfil' %}" method="post" id="mi-formulario">
+                          {% csrf_token %}
+
+                        <p class="data_user text-center">{{ request.user.first_name }} {{request.user.last_name }}</p>
+                        <div class="field">
+                          <hr class="my-1"> 
+                          <label>Nombre de usuario: </label><br>
+                          <span class="display-text">{{ request.user.username }}</span>
+                          <input name="username"  type="text" class="form-control editable-input" value="{{ request.user.username }}">
+                          <i class="bi bi-pencil-fill edit-icon" onclick="toggleEdit(this)"></i>
+                        </div>
+                        <div class="field">
+                          <label>DNI: </label><br>
+                          <span class="display-text">{{ user_data.dni }}</span>
+                        </div>
+                        <div class="field">
+                          <label>Nacionalidad: </label><br>
+                          <span class="display-text">{{ user_data.direccion }}</span>
+                        </div>
+                        <div class="field">
+                          <label>Email: </label><br>
+                          <span class="display-text">{{ request.user.email }}</span>
+                          <input name="email" type="email" class="form-control editable-input" value="{{ request.user.email }}">
+                          <i class="bi bi-pencil-fill edit-icon" onclick="toggleEdit(this)"></i>
+                        </div>
+                        <div class="field">
+                          <label>Telefono: </label><br>
+                          <span class="display-text">{{ user_data.telefono }}</span>
+                          <input name="telefono" type="text" class="form-control editable-input" value="{{ user_data.telefono }}">
+                          <i class="bi bi-pencil-fill edit-icon" onclick="toggleEdit(this)"></i>
+                        </div>    
+                          
+                        
+                        <button class="btn btn-outline-primary w-100 mt-3" onclick="guardarDatos()">Guardar cambios</button>  
+                      </form>
+                      </div>
+
+                  </div>
+
+                  <div class="offcanvas-footer">
+                    {% if request.user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-success" type="submit">Cerrar sesion</button>
+                    </form>
+                    {% endif %}
+                  </div>
+          </div>
+
+    </header>
+    <main>
+
+      {% block content %}
+      {% endblock %}
+    </main>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    {% block extrascripts %}
+
+    {% endblock %}
+
+    <footer class="text-light py-4 mt-5">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 mb-3">
+                  <h5>DeltaPro</h5>
+                  <p>Ayudando y educando futuros profesionales.</p>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <h5>Enlaces útiles</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="text-light text-decoration-none">Inicio</a></li>
+                      <li><a href="#" class="text-light text-decoration-none">Sobre nosotros</a></li>
+                      <li><a href="#" class="text-light text-decoration-none">Servicios</a></li>
+                      <li><a href="#" class="text-light text-decoration-none">Contacto</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <h5>Contacto</h5>
+                  <p><i class="bi bi-geo-alt-fill"></i> Av. Ex Combatientes de Malvinas 3571, Salta Capital</p>
+                  <p><i class="bi bi-envelope-fill"></i> contacto@sunvoyage.com</p>
+                  <p><i class="bi bi-telephone-fill"></i> +54 387 123-4567</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+<script src="{% static '/scripts/base.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Raices{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">¡Bienvenido a Raices!</h1>
+        <p class="lead">Explorá nuestros servicios, conocé más sobre nosotros y descubrí cómo podemos ayudarte.</p>
+    </div>
+
+    <hr class="col my-5">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="{% url 'regula_falsi' %}" class="btn btn-primary btn-lg mt-3">regula falsi</a>
+        <a href="{% url 'biseccion' %}" class="btn btn-primary btn-lg mt-3">biseccion</a>
+        <a href="#" class="btn btn-primary btn-lg mt-3">Newton</a>
+        <a href="{% url 'secante' %}" class="btn btn-primary btn-lg mt-3">Secante</a>
+    </div>
+
+
+
+</div>
+{% endblock%}

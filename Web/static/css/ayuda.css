@@ -1,0 +1,44 @@
+:root {
+    --color-principal: #991818;  /* Rojo oscuro */
+    --color-secundario: #69c2d5; /* Celeste */
+    --color-fondo: #f8f9fa;      /* Gris claro */
+    --color-texto: #212529;      /* Gris oscuro */
+  }
+.container {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+.container h1 {
+    color: var(--color-principal);
+    font-weight: bold;
+    font-size: 25px;
+   
+}
+  
+.container h2 {
+    color: var(--color-secundario);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+  
+  .container ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+  
+  .container dl dt {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+  
+.container dl dd {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+  
+a {
+    color: var(--color-principal);
+    text-decoration: none;
+}

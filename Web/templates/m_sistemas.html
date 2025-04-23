@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Sistemas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">¡Bienvenido a Sistemas!</h1>
+        <p class="lead">Explorá nuestros servicios, conocé más sobre nosotros y descubrí cómo podemos ayudarte.</p>
+    </div>
+
+    <hr class="my-5">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="{% url 'gauss' %}" class="btn btn-primary btn-lg">Gauss</a>
+        <a href="{% url 'gauss_jordan' %}" class="btn btn-primary btn-lg">Gauss Jordan</a>
+        <a href="{% url 'gauss_seidel' %}" class="btn btn-primary btn-lg">Gauss Seidel</a>
+        <a href="{% url 'jacobi' %}" class="btn btn-primary btn-lg">Jacobi</a>
+
+    </div>
+
+
+</div>
+{% endblock%}

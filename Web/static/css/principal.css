@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "open-sans",sans-serif;
+    line-height: 1.5;
+
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+h1{
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+
+}
+
+.show_case{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    color: white;
+
+}
+
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url("../img/fondo_principal.png") no-repeat center center/cover;
+    
+
+}
+.video-container video{
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.video-container:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+.btn-register {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color:black;
+    background-color: #9DD3DF;
+    border-radius: 10px;
+    border: none;
+    transition: all ease 300ms;
+
+}
+.btn-register:hover {
+    transform: scale(1.1);
+    background-color: #991818;
+    color: #fff;
+    
+}
+
+#about {
+    padding: 40px;
+    text-align: center;
+    background-color: #9918184a;
+
+}
+#about p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+#about h2{
+    margin: 30px 0;
+    color: black;
+
+}
+
+
+/*deslizamiento de login y titulo*/
+.title-app {
+    text-align: center;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    z-index: 2;
+}
+
+.title-app.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.wrapper {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.8s ease;
+}
+
+.wrapper.show {
+    opacity: 1;
+    transform: translateY(0);
+}

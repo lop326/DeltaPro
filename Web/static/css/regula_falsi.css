@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    padding: 2rem;
+}
+h1 {
+    text-align: center;
+}
+label {
+    display: block;
+    margin-top: 1rem;
+}
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+}
+button {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+pre {
+    background: #fff;
+    padding: 1rem;
+    margin-top: 2rem;
+    border: 1px solid #ccc;
+    max-height: 400px;
+    overflow-y: auto;
+}

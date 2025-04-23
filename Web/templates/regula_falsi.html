@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método de Regula Falsi</title>
+    <link rel="stylesheet" href="../static/css/regula_falsi.css">
+
+</head>
+<body>
+    <h1>Método de Regula Falsi</h1>
+
+    <label>Función (en x):</label>
+    <input id="funcion" placeholder="Ej: x**3 - x - 2">
+
+    <label>Valor inicial a:</label>
+    <input type="number" id="a">
+
+    <label>Valor inicial b:</label>
+    <input type="number" id="b">
+
+    <label>Tolerancia de error relativo (%):</label>
+    <input type="number" id="tolError" step="any">
+
+    <label>Tolerancia de f(x):</label>
+    <input type="number" id="tolFx" step="any">
+
+    <label>Máximo número de iteraciones:</label>
+    <input type="number" id="maxIter">
+
+    <button onclick="resolver()">Calcular Raíz</button>
+
+    <pre id="salida"></pre>
+
+    <script src="../static/scripts/regula _falsi.js"></script>
+</body>
+</html>

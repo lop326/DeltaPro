@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Registro</title>
+</head>
+<body>
+    <div class="content_register">
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            {% load widget_tweaks %}
+
+            <!-- Sección de Datos de Cuenta -->
+            <div class="register_user">
+                <h2>DATOS DE CUENTA</h2>
+                {% render_field user_form.username class+="inputs" placeholder=user_form.username.label %}
+                {% render_field user_form.email class+="inputs" placeholder=user_form.email.label %}
+                {% render_field user_form.password class+="inputs" placeholder=user_form.password.label %}
+                {% render_field user_form.password2 class+="inputs" placeholder=user_form.password2.label %}
+                {% render_field user_form.codigo_cliente class+="inputs" placeholder=user_form.codigo_cliente.label %}
+            </div>
+
+            <!-- Sección de Datos Personales -->
+            <div class="dates_personal">
+                <h2>DATOS PERSONALES</h2>
+                {% render_field user_form.first_name class+="inputs" placeholder=user_form.first_name.label %}
+                {% render_field user_form.last_name class+="inputs" placeholder=user_form.last_name.label %}
+                {% render_field user_form.dni class+="inputs" placeholder=user_form.dni.label %}
+                {% render_field user_form.telefono class+="inputs" placeholder=user_form.telefono.label %}
+            </div>
+            
+            <input type="submit" value="Registrar">
+        </form>
+
+        <div class="error_register">
+            {% if user_form.errors %}
+                <div class="error-message">
+                    {% for field, errors in user_form.errors.items %}
+                        {% for error in errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>

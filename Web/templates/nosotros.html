@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Nosotros{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/nosotros.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="display-4 fw-bold">¡Nosotros somos [nombre de nuestra empresa]!</h1>
+    <p class="lead">Explorá nuestros servicios, conocé más sobre nosotros y descubrí cómo podemos ayudarte.</p>
+  </div>
+  
+  <hr class="my-5">
+  
+  <h2>Nuestros servicios</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="servicio-box">
+        <h4>Desarrollo de Software</h4>
+        <p>Informatizamos tu empresa.</p>
+      </div>
+    </div>    
+    <div class="col-md-4 mb-4">
+      <div class="servicio-box">
+        <h4>Mantenimiento y soporte</h4>
+        <p>Aseguramos un correcto funcionamiento y actualizaciones.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="servicio-box">
+        <h4>Diseño y desarrollo de UX/UI</h4>
+        <p>Mejoramos la interaccion de los usuario de tu empresa.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="servicio-box">
+        <h4>Análisis de datos</h4>
+        <p>Transformamos tus datos en decisiones inteligentes.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="servicio-box">
+        <h4>Automatizacion de procesos</h4>
+        <p>Mejoramos la eficiencia en tu empresa.</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="servicio-box">
+        <h4>Desarrollo de sistemas a medida</h4>
+        <p>Desarrollo de sistemas a medida.</p>
+      </div>
+    </div>
+  </div>
+      <!-- Sección: Equipo de Desarrollo -->
+      <section class="mb-5">
+        <h2>Equipo de Desarrollo</h2>
+        <div class="row text-center">
+            <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Alvaro Lopez<br><small>Full-Stack Developer</small></p>
+        </div>
+        <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Priscilla Sarapura<br><small>Backend Developer</small></p>
+        </div>
+        <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Fiorella Corti<br><small>UX/UI Developer</small></p>
+        </div>
+        <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Nicolas Ocampo<br><small>Backend Developer</small></p>
+        </div>
+        <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Ezequiel Pantoja<br><small>Backend Developer</small></p>
+        </div>
+        <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Santiago Herraez<br><small>Backend Developer</small></p>
+        </div>
+        <div class="col-md-3">
+            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
+            <p class="mt-2">Bautista Rangeon<br><small>Backend Developer</small></p>
+        </div>
+      </div>
+    </section>
+</div>
+
+
+
+{% endblock %}
+  

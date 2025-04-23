@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ayuda{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/ayuda.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="mb-4">CENTRO DE AYUDA</h1>
+
+    <section class="mb-5">
+      <h2>¿Cómo funciona DeltaPro?</h2>
+      <p>
+        DeltaPro es una plataforma educativa diseñada para ayudarte a aprender y practicar conceptos de matemáticas aplicadas. Nuestro objetivo es ofrecer herramientas claras, accesibles y prácticas tanto para estudiantes de carreras técnicas como para profesionales.
+      </p>
+    </section>
+
+    <section class="mb-5">
+      <h2>¿Cómo navegar por el sitio?</h2>
+      <ul>
+        <li><strong>Home:</strong> Página de inicio con novedades y acceso rápido a los recursos.</li>
+        <li><strong>Recursos:</strong> Accedé a las calculadoras de acuerdo a tus necesidades.</li>
+        <li><strong>Nosotros:</strong> Conocé al equipo que desarrolló DeltaPro.</li>
+        <li><strong>Servicios:</strong> Mirá qué más podemos hacer por vos.</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>Preguntas Frecuentes</h2>
+      <dl>
+        <dt>¿Necesito registrarme para usar la página?</dt>
+        <dd>No, podés acceder libremente a la mayoría del contenido. Algunas herramientas avanzadas requerirán registro.</dd>
+
+        <dt>¿Como uso las calculadoras de metodos numericos?</dt>
+        <dd></dd>
+
+        <dt>¿Puedo contactar al equipo?</dt>
+        <dd>Sí, tenés todos los datos de contacto en el pie de página.</dd>
+
+        <dt>¿Puedo sugerir mejoras?</dt>
+        <dd>¡Claro! Nos encanta recibir feedback. Mandanos un mail o usá el formulario de contacto.</dd>
+
+      </dl>
+    </section>
+
+    <section>
+      <h2>¿Aún tenés dudas?</h2>
+      <p>
+        Escribinos a <a href="mailto:contacto@DeltaPro.com">contacto@DeltaPro.com</a> y te ayudaremos lo antes posible.
+      </p>
+    </section>
+</div>
+{% endblock %}
+

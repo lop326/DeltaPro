@@ -1,0 +1,100 @@
+:root {
+    --color-claro: #F7F7F7;
+    --color-gris-azulado: #C9D1D3;
+    --color-celeste: #9DD3DF;
+    --color-oscuro: #3B3737;
+    --color-rojo: #991818;
+  }
+body{
+    background-color: var(--color-claro);
+    color: var(--color-oscuro);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.offcanvas-body .btn {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.offcanvas-footer{
+    padding: 16px;
+}
+.offcanvas-footer .btn{
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.photo-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+  padding: 0;
+  width: 100%;
+  height: 200px;
+}
+.photo-user i {
+  font-size: 200px;
+  color: #6c757d;
+}
+.field {
+      margin-bottom: 20px;
+  }
+
+.field label {
+      font-weight: bold;
+}
+
+.display-text {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.editable-input {
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: #000000;
+    font-size: 1.1rem;
+    margin-left: 10px;
+}
+
+header,footer{
+    background-color: var(--color-rojo);
+    color: #F7F7F7;
+}
+
+
+
+nav a{
+    color: #F7F7F7;
+}
+
+h1 {
+    color: #3B3737;
+    font-size: large;
+  }
+
+h2, h3 {
+    color: var(--color-rojo);
+}
+
+.btn-primary {
+    background-color: var(--color-celeste);
+    border: none;
+    color: var(--color-oscuro);
+}
+.btn-primary:hover {
+    background-color: var(--color-rojo);
+    border: none;
+    color: white;
+}
+
+

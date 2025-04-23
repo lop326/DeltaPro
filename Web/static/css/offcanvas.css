@@ -1,0 +1,19 @@
+.offcanvas-body .btn {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.offcanvas-footer{
+    padding: 16px;
+}
+.offcanvas-footer .btn{
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+#lista-carpetas {
+margin-top: 10px;
+}
+#select-carpeta {
+display: none;
+}

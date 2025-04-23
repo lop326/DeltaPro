@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <div class="text-center">
+      <h1 class="display-4 fw-bold">¡Bienvenido a Nuestra Página!</h1>
+      <p class="lead">Explorá nuestros servicios, conocé más sobre nosotros y descubrí cómo podemos ayudarte.</p>
+      <a href="{% url 'nosotros' %}" class="btn btn-primary btn-lg mt-3">Conocé más</a>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <img src="../static/img/servicio1.png" alt="Feature 1" class="img-fluid mb-3" style="max-height: 150px;">
+        <h3>Usuarios actualmente</h3>
+        <p>Descripción breve del servicio número uno que ofrecemos.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="../static/img/servicio2.png" alt="Feature 2" class="img-fluid mb-3" style="max-height: 150px;">
+        <h3>Metodos disponibles</h3>
+        <p>Una pequeña descripción del segundo servicio que brindamos.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="../static/img/servicio3.png" alt="Feature 3" class="img-fluid mb-3" style="max-height: 150px;">
+        <h3>Cantidad de</h3>
+        <p>Un párrafo corto sobre el tercer servicio de la página.</p>
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Sección: Acerca del Proyecto -->
+    <section class="mb-5">
+      <h2>Acerca del Proyecto</h2>
+      <p>
+        Este proyecto fue desarrollado con el objetivo de brindar una plataforma educativa interactiva 
+        para estudiantes, docentes y profesionales que necesiten resolver problemas matemáticos mediante 
+        métodos numéricos.
+      </p>
+    </section>
+
+    <!-- Sección: ¿Qué Problemas Resuelve? -->
+    <section class="mb-5">
+      <h2>¿Qué Problemas Resuelve Nuestra Aplicación?</h2>
+      <ul>
+        <li>Automatiza cálculos complejos como raíces de ecuaciones o sistemas de ecuaciones.</li>
+        <li>Disminuye el margen de error en cálculos realizados a mano.</li>
+        <li>Sirve como herramienta de apoyo para enseñar y aprender métodos numéricos.</li>
+      </ul>
+    </section>
+
+    <!-- Sección: ¿Quiénes la Pueden Usar? -->
+    <section class="mb-5">
+      <h2>¿Quiénes la Pueden Usar?</h2>
+      <p>
+        La aplicación está pensada para:
+      </p>
+      <ul>
+        <li>Estudiantes de ingeniería, física y carreras afines.</li>
+        <li>Docentes universitarios y secundarios.</li>
+        <li>Profesionales que requieran soluciones rápidas a problemas numéricos.</li>
+      </ul>
+    </section>
+{% endblock %}
+
