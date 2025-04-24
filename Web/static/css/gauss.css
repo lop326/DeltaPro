@@ -1,6 +1,5 @@
-html{
-  background-color: #f2f2f8;
-}
+
+
 main {
   font-family: 'Segoe UI', sans-serif;
   display: flex;
@@ -42,6 +41,19 @@ h1 {
   padding: 8px;
 }
 
+select {
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+input[type="number"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
 .boton {
   background-color: #007BFF;
   color: white;
@@ -68,8 +80,11 @@ h1 {
   white-space: pre;
 }
 
-select {
-  padding: 5px 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
+textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+  resize: vertical;
 }

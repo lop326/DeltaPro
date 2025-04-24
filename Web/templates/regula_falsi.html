@@ -1,16 +1,77 @@
 {% extends 'base_m_R.html' %}
 {% load static %}
-{% block title %}prueba{% endblock %}
+{% block title %}Regula falsi{% endblock %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'css/gauss.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/regula_falsi.css' %}">
 {% endblock %}
 {% block content %}
-
-
+<div class="body-regula-falsi">
+    <div class="container-regula-falsi">
+        <h1>Regula Falsi - Método</h1>
+        <form id="formulario" novalidate>
+            <div class="button-grid">
+                <button type="button" class="btn-regula" onclick="insertar('sin(x)')">sin</button>
+                <button type="button" class="btn-regula" onclick="insertar('cos(x)')">cos</button>
+                <button type="button" class="btn-regula" onclick="insertar('tan(x)')">tan</button>
+                <button type="button" class="btn-regula" onclick="insertar('log(x)')">log</button>
+                <button type="button" class="btn-regula" onclick="insertar('sqrt(x)')">√</button> <!-- corregido -->
+                <button type="button" class="btn-regula" onclick="insertar('exp(x)')">exp</button>
+                <button type="button" class="btn-regula" onclick="insertar('**')">^</button> <!-- corregido -->
+                <button type="button" class="btn-regula" onclick="insertar('π')">π</button> <!-- corregido -->
+                <button type="button" class="btn-regula" onclick="limpiar()">🗑 Limpiar</button>
+            </div>
+            <div class="info-reglas">
+                <p><strong>ℹ️ Reglas para ingresar la función:</strong></p>
+                <ul>
+                    <li>Usá <code>sqrt(x)</code> para raíz cuadrada.</li>
+                    <li>Escribí <code>pi</code> para π.</li>
+                    <li>Usá <code>**</code> para potencias (por ejemplo, <code>x**2</code>).</li>
+                    <li>Funciones disponibles: <code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code>, <code>log(x)</code>, <code>exp(x)</code>.</li>
+                </ul>
+            </div>
+            <div class="input-group">
+                <label for="funcion-regula">Ingresa la función en x:</label>
+                <input type="text" id="funcion-regula" placeholder="Ejemplo: sin(x) + cos(x)" required>
+            </div>
+            <div class="input-group">
+                <label for="a">Valor inicial a:</label>
+                <input type="number" id="a" step="any" required>
+            </div>
+            <div class="input-group">
+                <label for="b">Valor inicial b:</label>
+                <input type="number" id="b" step="any" required>
+            </div>
+            <div class="input-group">
+                <label for="maxIter">Máximo número de iteraciones:</label>
+                <input type="number" id="maxIter" required>
+            </div>
+            <div class="input-group">
+                <label for="tolError">Tolerancia de error relativo (%):</label>
+                <input type="number" id="tolError" step="any" required>
+            </div>
+            <div class="input-group">
+                <label for="tolFx">Tolerancia de f(x):</label>
+                <input type="number" id="tolFx" step="any" required>
+            </div>
+            <button class="btn-regula" type="submit">Calcular Raíz</button>
+        </form>
+    
+        <div id="resultados-regula" class="resultados-regula" style="display: none;">
+            <h2>Resultados de las Iteraciones</h2>
+            <div id="output"></div>
+            <p id="raiz"></p>
+        </div>
+        <div id="grafico-regula" style="height: 400px; margin-top: 20px;"></div>
+    
+    </div>
+    
+</div>
 
 {% endblock %}
 
 {% block extrascripts %}
-<script src="{% static 'scripts/gauss.js' %}"></script>
+<script src="{% static 'scripts/regula_falsi.js' %}"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 {% endblock %}

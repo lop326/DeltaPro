@@ -8,6 +8,7 @@
 
 {% block content %}
 <h1>Método de Jacobi</h1>
+
 <div class="contenedor">
   <label for="tamano">Seleccioná la cantidad de incógnitas:</label>
   <select id="tamano" onchange="crearTabla()">
@@ -19,22 +20,31 @@
 
   <form id="jacobi-form">
     <div id="tablaInputs"></div>
-    <label for="error" class="form-label mt-3">Error:</label>
-    <input type="text" id="error" class="form-control" placeholder="Ej: 1e-6">
+
+    <div class="form-group mt-3">
+      <label for="error">Error:</label>
+      <input type="text" id="error" class="form-control w-25 mx-auto text-center" placeholder="Ej: 1e-6">
+    </div>
+
 
     <div class="d-flex justify-content-center gap-2 mt-3">
-      <button type="submit" class="btn btn-primary">Calcular</button>
-      <button type="button" class="btn btn-outline-danger" onclick="limpiarR()">Limpiar</button>
+      <button type="submit" class="btn btn-primary">Calcular Solución</button>
+      <button type="button" class="btn btn-outline-danger" onclick="limpiarResultados()">Limpiar Resultados</button>
     </div>
   </form>
 
-  <div id="resultado" class="resultado mt-4"></div>
+  <div id="ejercicios-resueltos">
+    <div id="paso1" class="paso" style="display:none;"></div>
+    <div id="paso2" class="paso" style="display:none;"></div>
+    <div id="paso3" class="paso" style="display:none;"></div>
+    <div class="resultado" id="resultado" style="display:none;"></div>
 
-  <div class="mb-3 mt-4">
-    <label for="comentario" class="form-label">
-      <strong>Comentario del usuario:</strong>
-    </label>
-    <textarea class="form-control" id="comentario" rows="3" placeholder="Escribí tus observaciones aquí..."></textarea>
+    <div class="mb-3 mt-4">
+      <label id="comentarioUsuario-label" for="comentarioUsuario" class="form-label">
+        <strong>Comentario del usuario:</strong>
+      </label>
+      <textarea class="form-control" id="comentarioUsuario" rows="3" placeholder="Escribí tus observaciones aquí..."></textarea>
+    </div>
   </div>
 </div>
 {% endblock %}

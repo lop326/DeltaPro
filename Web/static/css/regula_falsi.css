@@ -1,35 +1,126 @@
-body {
+.body-regula-falsi {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background: #f0f0f0;
-    padding: 2rem;
+    color: #3b3737;
 }
+
+
+
+.container-regula-falsi {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #c9d1d3;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
     text-align: center;
+    color: #991818;
 }
+
+.input-group {
+    margin-bottom: 15px;
+}
+
 label {
-    display: block;
-    margin-top: 1rem;
-}
-input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.2rem;
-}
-button {
-    margin-top: 1.5rem;
-    padding: 0.8rem;
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
     font-weight: bold;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-regula {
+    background-color: #991818;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
 }
-pre {
-    background: #fff;
-    padding: 1rem;
-    margin-top: 2rem;
-    border: 1px solid #ccc;
-    max-height: 400px;
-    overflow-y: auto;
+
+.btn-regula:hover {
+    background-color: #3b3737;
 }
+
+.resultados {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3b3737;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+#raiz {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+.button-grid .btn-regula {
+    padding: 0.75rem;
+    background-color: #711c1c;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+.button-grid .btn-regula:hover {
+    background-color: #8a2323;
+  }
+  
+  .info-reglas {
+    background-color: #f7f7f7;
+    border-left: 4px solid #991818;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 0.9rem;
+    color: #3b3737;
+}
+
+.info-reglas ul {
+    margin: 5px 0 0 15px;
+    padding-left: 0;
+}
+
+.info-reglas code {
+    background-color: #e0e0e0;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+
+  

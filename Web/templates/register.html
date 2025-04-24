@@ -5,14 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal.css' %}">
     <title>Registro</title>
 </head>
 <body>
+    <section class="show_case">
+
+        <div class="video-container">
+            <video src="{% static '/videos/fondo_principal.mp4' %}" autoplay muted loop></video>
+        </div>
+
     <div class="content_register">
         <form action="{% url 'register' %}" method="POST">
             {% csrf_token %}
             {% load widget_tweaks %}
-
+            
+            <div class="data">
+                
             <!-- Sección de Datos de Cuenta -->
             <div class="register_user">
                 <h2>DATOS DE CUENTA</h2>
@@ -24,15 +33,18 @@
             </div>
 
             <!-- Sección de Datos Personales -->
-            <div class="dates_personal">
+            <div class="data_personal">
                 <h2>DATOS PERSONALES</h2>
                 {% render_field user_form.first_name class+="inputs" placeholder=user_form.first_name.label %}
                 {% render_field user_form.last_name class+="inputs" placeholder=user_form.last_name.label %}
                 {% render_field user_form.dni class+="inputs" placeholder=user_form.dni.label %}
                 {% render_field user_form.telefono class+="inputs" placeholder=user_form.telefono.label %}
             </div>
-            
-            <input type="submit" value="Registrar">
+
+            </div>
+     
+            <input class="btn-form-register" type="submit" value="Registrar">
+            <a href="{% url 'login' %}" class="btn-form-register">Volver</a>
         </form>
 
         <div class="error_register">
@@ -48,9 +60,9 @@
         </div>
         
     </div>
-
-</body>
-</html>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>

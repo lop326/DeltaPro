@@ -12,7 +12,6 @@
   align-items: center;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: var(--color-gris-azulado);
   color: black;
   display: flex;
   flex-direction: row;

@@ -220,12 +220,12 @@ function Calcular() {
 
         resultadoDiv.innerHTML += `<p><strong>${resultado.mensaje}</strong></p><br>`;
 
-        resultado.historial.forEach(i => {
-            resultadoDiv.innerHTML += `
-                <p>Iteración ${i.iter.toString().padStart(3)} | Error: ${i.error.toExponential(2)} | 
-                x = [${i.vector.map(v => v.toFixed(6)).join(", ")}]</p>
-            `;
-        });
+        let lineaIteraciones = resultado.historial.map(i => {
+            return `Iter ${i.iter} (err: ${i.error.toExponential(2)}) x=[${i.vector.map(v => v.toFixed(4)).join(", ")}]`;
+        }).join(" | ");
+        
+        resultadoDiv.innerHTML += `<p>${lineaIteraciones}</p><br>`;
+        
 
         resultadoDiv.innerHTML += `<p>✅ Solución encontrada en ${resultado.iteraciones} iteraciones:</p>`;
         resultado.solucion.forEach((val, i) => {
@@ -237,3 +237,7 @@ function Calcular() {
         resultadoDiv.textContent = `❌ Error: ${e.message}`;
     }
 }
+// Crear la tabla al cargar la página
+window.addEventListener("DOMContentLoaded", () => {
+    crearTabla();
+});

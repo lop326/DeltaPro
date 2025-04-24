@@ -1,16 +1,52 @@
 {% extends 'base_m_SE.html' %}
 {% load static %}
-{% block title %}prueba{% endblock %}
+{% block title %}Gauss Seidel{% endblock %}
 
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/gauss.css' %}">
 {% endblock %}
+
 {% block content %}
+<h1>Método de Gauss Seidel</h1>
 
-  
+<div class="contenedor">
+  <label for="tamano">Seleccioná la cantidad de incógnitas:</label>
+  <select id="tamano" onchange="crearTabla()">
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 
+  <form id="gaussForm">
+    <div id="tablaInputs"></div>
+    <div class="form-group mt-3">
+      <label for="iteraciones">Cantidad de iteraciones:</label>
+      <input type="number" id="iteraciones" class="form-control w-25 mx-auto text-center" value="10" min="1">
+    </div>
+    
+    <div class="d-flex justify-content-center gap-2 mt-3">
+      <button type="submit" class="btn btn-primary">Calcular Solución</button>
+      <button type="button" class="btn btn-outline-danger" onclick="limpiarResultados()">Limpiar Resultados</button>
+    </div>
+  </form>
+
+  <div id="ejercicios-resueltos">
+    <div id="paso1" class="paso" style="display:none;"></div>
+    <div id="paso2" class="paso" style="display:none;"></div>
+    <div id="paso3" class="paso" style="display:none;"></div>
+    <div class="resultado" id="resultado" style="display:none;"></div>
+
+    <div class="mb-3 mt-4">
+      <label id="comentarioUsuario-label" for="comentarioUsuario" class="form-label">
+        <strong>Comentario del usuario:</strong>
+      </label>
+      <textarea class="form-control" id="comentarioUsuario" rows="3" placeholder="Escribí tus observaciones aquí..."></textarea>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block extrascripts %}
-<script src="{% static 'scripts/gauss.js' %}"></script>
+<script src="{% static 'scripts/gauss_seidel.js' %}"></script>
 {% endblock %}

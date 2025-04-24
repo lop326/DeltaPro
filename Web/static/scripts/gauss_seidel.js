@@ -1,87 +1,125 @@
-// Crear la tabla de entradas para el Método de Seidel
-function crearTablaSeidel() {
-    const tamano = document.getElementById('tamano').value;
-    const tablaInputs = document.getElementById('tablaInputsSeidel');
-    tablaInputs.innerHTML = ''; // Limpiar la tabla de entradas
-
-    // Crear la tabla para las incógnitas (X1, X2, X3...)
-    let html = '<h3>Ingrese los valores de la matriz A y el vector B:</h3>';
-    html += `<table class="table table-bordered">`;
-    for (let i = 0; i < tamano; i++) {
-        html += '<tr>';
-        for (let j = 0; j < tamano; j++) {
-            html += `<td><input type="number" class="form-control" id="a${i}${j}" placeholder="A${i+1}${j+1}" required></td>`;
-        }
-        html += `<td><input type="number" class="form-control" id="b${i}" placeholder="B${i+1}" required></td>`;
-        html += '</tr>';
+function crearTabla() {
+    const n = parseInt(document.getElementById('tamano').value);
+    const contenedor = document.getElementById('tablaInputs');
+    contenedor.innerHTML = '';
+  
+    for (let i = 0; i < n; i++) {
+      let fila = document.createElement('div');
+      fila.className = 'fila d-flex justify-content-center align-items-center';
+  
+      // Crear los inputs para la matriz A
+      for (let j = 0; j < n; j++) {
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.id = `a_${i}_${j}`;
+        input.step = 'any';
+        input.placeholder = `a${i + 1}${j + 1}`;
+        input.className = 'form-control m-1 text-center';
+        fila.appendChild(input);
+      }
+  
+      // Añadir la etiqueta del igual
+      const igual = document.createElement('label');
+      igual.innerText = '=';
+      igual.className = 'm-1';
+      fila.appendChild(igual);
+  
+      // Crear el input para el vector B
+      const inputB = document.createElement('input');
+      inputB.type = 'number';
+      inputB.id = `b_${i}`;
+      inputB.step = 'any';
+      inputB.placeholder = `b${i + 1}`;
+      inputB.className = 'form-control m-1 text-center';
+      fila.appendChild(inputB);
+  
+      // Añadir la fila al contenedor
+      contenedor.appendChild(fila);
     }
-    html += '</table>';
-    tablaInputs.innerHTML = html;
+  }
+  
+
+function obtenerDatos(n) {
+  let A = [], B = [];
+  for (let i = 0; i < n; i++) {
+    let fila = [];
+    for (let j = 0; j < n; j++) {
+      const val = document.getElementById(`a_${i}_${j}`).value;
+      fila.push(parseFloat(val) || 0);
+    }
+    A.push(fila);
+    const bVal = document.getElementById(`b_${i}`).value;
+    B.push(parseFloat(bVal) || 0);
+  }
+  return { A, B };
 }
 
-// Calcular la solución con el Método de Seidel
-document.getElementById('seidelForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evitar recarga de la página
-
-    const tamano = document.getElementById('tamano').value;
-    let A = [], B = [], X = Array(tamano).fill(0); // Matriz A, Vector B, Solución X
-
-    // Obtener los valores de A y B
-    for (let i = 0; i < tamano; i++) {
-        A[i] = [];
-        for (let j = 0; j < tamano; j++) {
-            A[i].push(parseFloat(document.getElementById(`a${i}${j}`).value));
-        }
-        B.push(parseFloat(document.getElementById(`b${i}`).value));
+function esDominante(M) {
+  for (let i = 0; i < M.length; i++) {
+    let suma = 0;
+    for (let j = 0; j < M.length; j++) {
+      if (i !== j) suma += Math.abs(M[i][j]);
     }
-
-    // Aplicar el método de Seidel
-    let maxIterations = 100;  // Número máximo de iteraciones
-    let tolerance = 0.0001;   // Tolerancia para la convergencia
-    let iteration = 0;
-    let error = 1;
-    let Xnew = [...X]; // Inicializamos con X = 0
-
-    while (iteration < maxIterations && error > tolerance) {
-        iteration++;
-        error = 0;
-        
-        // Iterar sobre cada incógnita
-        for (let i = 0; i < tamano; i++) {
-            let sum = B[i];
-            for (let j = 0; j < tamano; j++) {
-                if (i !== j) {
-                    sum -= A[i][j] * Xnew[j];
-                }
-            }
-            Xnew[i] = sum / A[i][i];
-            
-            // Calcular el error como la diferencia en las soluciones
-            error = Math.max(error, Math.abs(Xnew[i] - X[i]));
-        }
-
-        // Actualizar la solución
-        X = [...Xnew];
-
-        // Mostrar el paso actual
-        mostrarPasosSeidel(iteration, Xnew);
-    }
-
-    // Mostrar resultado final
-    document.getElementById('resultado-seidel').innerText = `Solución: X = [${Xnew.join(', ')}]`;
-    document.getElementById('resultado-seidel').style.display = 'block';
-});
-
-// Mostrar los pasos de Seidel
-function mostrarPasosSeidel(iteration, Xnew) {
-    document.getElementById(`paso${iteration}-seidel`).innerHTML = `Iteración ${iteration}: [${Xnew.join(', ')}]`;
-    document.getElementById(`paso${iteration}-seidel`).style.display = 'block';
+    if (Math.abs(M[i][i]) < suma) return false;
+  }
+  return true;
 }
 
-// Limpiar los resultados
-function limpiarResultadosSeidel() {
-    document.getElementById('resultado-seidel').style.display = 'none';
-    for (let i = 1; i <= 3; i++) {
-        document.getElementById(`paso${i}-seidel`).style.display = 'none';
+function mostrarMatriz(id, titulo, matriz, vector = null) {
+  let html = `${titulo}\n`;
+  const n = matriz.length;
+  for (let i = 0; i < n; i++) {
+    let fila = matriz[i].map(v => v.toFixed(2).padStart(6)).join('');
+    let izq = i === 0 ? '⎡' : i === n - 1 ? '⎣' : '⎢';
+    let der = i === 0 ? '⎤' : i === n - 1 ? '⎦' : '⎥';
+
+    if (vector) {
+      let v = vector[i].toFixed(2).padStart(6);
+      html += `${izq}${fila} ${der}   ${izq}${v}${der}\n`;
+    } else {
+      html += `${izq}${fila}${der}\n`;
     }
+  }
+  const div = document.getElementById(id);
+  div.style.display = 'block';
+  div.textContent = html;
 }
+
+function resolver(event) {
+  event.preventDefault();
+  const n = parseInt(document.getElementById('tamano').value);
+  const iter = parseInt(document.getElementById('iteraciones').value);
+  let X = Array(n).fill(0);
+  const { A, B } = obtenerDatos(n);
+
+  if (!esDominante(A)) {
+    document.getElementById('resultado').innerText = "La matriz no es diagonalmente dominante.";
+    document.getElementById('resultado').style.display = 'block';
+    return;
+  }
+
+  mostrarMatriz('paso1', 'Matriz A y vector B:', A, B);
+
+  for (let k = 0; k < iter; k++) {
+    for (let i = 0; i < n; i++) {
+      let sum = B[i];
+      for (let j = 0; j < n; j++) {
+        if (i !== j) {
+          sum -= A[i][j] * X[j];
+        }
+      }
+      X[i] = sum / A[i][i];
+    }
+  }
+
+  mostrarMatriz('paso2', `Solución aproximada tras ${iter} iteraciones:`, [X]);
+
+  document.getElementById('resultado').innerText = "Resultado aproximado: [" + X.map(x => x.toFixed(4)).join(", ") + "]";
+  document.getElementById('resultado').style.display = 'block';
+}
+
+
+window.onload = () => {
+  crearTabla();
+  document.getElementById('gaussForm').addEventListener('submit', resolver);
+};

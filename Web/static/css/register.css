@@ -1,92 +1,104 @@
-/* Fondo completo */
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-}
+:root {
+    --color-claro: #F7F7F7;
+    --color-gris-azulado: #C9D1D3;
+    --color-celeste: #9DD3DF;
+    --color-oscuro: #3B3737;
+    --color-rojo: #991818;
+  }
+  
 
-/* Contenedor del formulario */
-.content_register {
-    background: rgba(4, 124, 124, 0.397);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+  
+  .content_register {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    width: 520px;
-    padding: 35px 50px;
-    color: black;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Títulos de secciones */
-.register_user h2,
-.dates_personal h2 {
+    box-shadow: 0 0 30px var(--color-celeste);
+    padding: 40px;
+    color: var(--color-claro);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .data{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  .register_user, .data_personal {
+    width: 500px;
+    margin: 10px 20px 10px 40px;
+    padding: 10px;
+  }
+  
+  .register_user h2, .data_personal h2 {
     text-align: center;
+    font-size: 1.5em;
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
-    color: black;
-    letter-spacing: 1px;
-}
-
-/* Inputs */
-.inputs {
+    color: var(--color-claro);
+    border-bottom: 1px solid var(--color-celeste);
+    padding-bottom: 10px;
+  }
+  
+  .inputs {
     width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
+    height: 45px;
+    background: transparent;
     border: none;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: black;
-    font-size: 15px;
+    border-bottom: 2px solid var(--color-gris-azulado);
+    margin-top:10px ;
+    padding: 0 10px;
+    color: var(--color-claro);
+    font-size: 1em;
     outline: none;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.inputs::placeholder {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.inputs:focus {
-    background-color: rgba(92, 30, 236, 0.25);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-/* Botón de registrar */
-input[type="submit"] {
-    width: 100%;
-    padding: 12px;
+    transition: 0.3s;
+  }
+  
+  .inputs::placeholder {
+    color: var(--color-gris-azulado);
+    opacity: 0.7;
+  }
+  
+  .inputs:focus {
+    border-bottom: 2px solid var(--color-celeste);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  
+  .error_register {
     margin-top: 20px;
+  }
+  
+  .error-message p {
+    color: var(--color-rojo);
+    font-size: 0.9em;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-left: 3px solid var(--color-rojo);
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+.btn-form-register {
+    padding: 10px 20px;
+    margin-top: 15px;
+    background: black;
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #3f51b5, #5c6bc0);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s ease;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    transition: all ease 0.3ms;
 }
 
-input[type="submit"]:hover {
-    background-color: #303f9f;
-    transform: scale(1.02);
+.btn-form-register:hover {
+    background: var(--color-celeste);
+    color: black;
+    transform: scale(1.05);
 }
-
-/* Error */
-.error-message {
-    background-color: rgba(255, 0, 0, 0.15);
-    padding: 12px;
-    margin-top: 20px;
-    border-radius: 10px;
-    text-align: center;
-    color: #ffcccc;
-    font-weight: bold;
-    border: 1px solid rgba(255, 0, 0, 0.3);
-}
-
-
