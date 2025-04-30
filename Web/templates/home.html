@@ -14,12 +14,16 @@
 
     <div class="row text-center">
       <div class="col-md-4">
-        <ion-icon name="people"  alt="Feature 1" style="font-size: 150px;"></ion-icon>
+        {% if number_users %}
+          <span style="font-size: 105px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">{{ number_users }}</span>
+        {% else %}
+          <ion-icon name="people"  alt="Feature 1" style="font-size: 150px;"></ion-icon>
+        {% endif %}
         <h3>Cantidad de Usuarios</h3>
         
       </div>
       <div class="col-md-4">
-        <ion-icon name="calculator" alt="Feature 2" style="font-size: 150px;"></ion-icon>
+        <span style="font-size: 105px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">8</span>
         <h3>Metodos disponibles</h3>
         
       </div>

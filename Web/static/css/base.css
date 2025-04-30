@@ -9,8 +9,10 @@ body{
     background-color: var(--color-claro);
     color: var(--color-oscuro);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
+
 }
 
 
