@@ -1,0 +1,182 @@
+/* tarjetas de informacion con direccionamiento*/
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    padding: 0;
+
+}
+.card .face{
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: 0.5s;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+.card .front{
+    transform: perspective(600px) rotateX(0deg);
+    box-shadow: 0 5px 10px black;
+}
+.card .front img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color:black;
+    text-align: center;
+}
+.card .back{
+    background:white;
+    transform: perspective(600px) rotateX(180deg);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px black;
+}
+.card .back h3{
+    font-size: 30px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+.card .back p{
+    letter-spacing: 1px;
+}
+.card .back .link{
+    height: 50px;
+    line-height: 50px;
+    border-top: solid 1px black;
+    
+}
+.card .back .link a{
+    text-decoration: none;
+    color: var(--color-rojo);
+}
+.card:hover .front{
+    transform: perspective(600px) rotateX(180deg);
+
+}
+.card:hover .back{
+    transform: perspective(600px) rotateX(360deg);
+
+}
+
+/*tarjetas con informacion de personas*/
+
+.profile-card{
+    position: relative;
+    width: 250px;
+    height: 350px;
+    border-radius:10px ;
+    box-shadow: 2px 3px 5px rgba(43, 42, 42, 0.671);
+    margin: 30px;
+    padding: 0;
+
+}
+.profile-card .personal-content{
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    background: var(--color-claro);
+}
+.profile-card .personal-content .img {
+    height: 50%;
+    margin-bottom: 20px;
+    
+}
+.profile-card .personal-content .img img {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px black;
+    background: var(--color-claro);
+}
+.profile-card .personal-content span{
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    background: linear-gradient(to right,#991818,#a13f3fc0); /*efecto gradiente hacia la derecha*/
+    transform: rotate(-35deg);
+    top: -50px;
+    left: -100px;
+}
+.profile-card .personal-content h4{
+    font-size: 18px;
+    color: black;
+    margin-bottom: 5px;
+
+}
+.profile-card .personal-content h6{
+    font-size: 16px;
+    color: #991818;
+
+}
+.profile-card .personal-content p{
+    font-size: 13px;
+    color: black;
+    margin-top: 10px;
+}
+
+.profile-card .links{
+    position: absolute;
+    z-index: 90;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 5px black;
+    padding: 20px;
+    align-items: center;
+    right: 10px;
+    top: 15px;
+    transition: .5s;
+}
+.profile-card:hover .links{
+    right: -50px;
+    border-radius: 0 10px 10px 0 ;
+}
+
+.profile-card .links a{
+    font-size: 25px;
+    color: #646069;
+
+}
+.profile-card .links a:nth-child(1):hover {
+    color: #25D366;
+}
+.profile-card .links a:nth-child(2):hover {
+    color: #e95950;
+}
+.profile-card .links a:nth-child(3):hover {
+    color: #1C93E4;
+}
+.profile-card .links a:nth-child(4):hover {
+    color:#5D277D ;
+}

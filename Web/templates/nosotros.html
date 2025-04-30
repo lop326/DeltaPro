@@ -4,6 +4,7 @@
 
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/nosotros.css' %}">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -17,77 +18,202 @@
   <hr class="my-5">
   
   <h2>Nuestros servicios</h2>
-  <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="servicio-box">
-        <h4>Desarrollo de Software</h4>
+  
+  <div class="row mb-5" style="align-items: center; justify-content: center;">
+    <div class="card">
+      <div class="face front">
+        <img src="../media/perfiles/DeltaPro_transparente.png" alt="servicio 1">
+        <h3>Desarrollo de Software</h3>
+      </div>
+      <div class="face back">
+        <h3>Desarrollo de Software</h3>
         <p>Informatizamos tu empresa.</p>
       </div>
-    </div>    
-    <div class="col-md-4 mb-4">
-      <div class="servicio-box">
-        <h4>Mantenimiento y soporte</h4>
+    </div>
+    <div class="card">
+      <div class="face front">
+        <img src="../media/perfiles/DeltaPro_transparente.png" alt="servicio 2">
+        <h3>Mantenimiento</h3>
+      </div>
+      <div class="face back">
+        <h3>Mantenimiento y soporte</h3>
         <p>Aseguramos un correcto funcionamiento y actualizaciones.</p>
       </div>
     </div>
-    <div class="col-md-4 mb-4">
-      <div class="servicio-box">
-        <h4>Diseño y desarrollo de UX/UI</h4>
+    <div class="card">
+      <div class="face front">
+        <img src="../media/perfiles/DeltaPro_transparente.png" alt="servicio 3">
+        <h3>Diseño</h3>
+      </div>
+      <div class="face back">
+        <h3>Diseño y desarrollo de UX/UI</h3>
         <p>Mejoramos la interaccion de los usuario de tu empresa.</p>
       </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="servicio-box">
-        <h4>Análisis de datos</h4>
+    </div>  
+    <div class="card">
+      <div class="face front">
+        <img src="../media/perfiles/DeltaPro_transparente.png" alt="servicio 4">
+        <h3>Análisis de datos</h3>
+      </div>
+      <div class="face back">
+        <h3>Análisis de datos</h3>
         <p>Transformamos tus datos en decisiones inteligentes.</p>
       </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="servicio-box">
-        <h4>Automatizacion de procesos</h4>
+    </div> 
+    <div class="card">
+      <div class="face front">
+        <img src="../media/perfiles/DeltaPro_transparente.png" alt="servicio 5">
+        <h3>Automatizacion</h3>
+      </div>
+      <div class="face back">
+        <h3>Automatizacion de procesos</h3>
         <p>Mejoramos la eficiencia en tu empresa.</p>
       </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="servicio-box">
-        <h4>Desarrollo de sistemas a medida</h4>
-        <p>Desarrollo de sistemas a medida.</p>
+    </div>  
+    <div class="card">
+      <div class="face front">
+        <img src="../media/perfiles/DeltaPro_transparente.png" alt="servicio 6">
+        <h3>Desarrollo de sistemas</h3>
       </div>
-    </div>
+      <div class="face back">
+        <h3>Desarrollo de sistemas a medida</h3>
+        <p>Desarrollo de sistemas adecuado al rubro.</p>
+      </div>
+    </div>         
+  
+
   </div>
       <!-- Sección: Equipo de Desarrollo -->
-      <section class="mb-5">
-        <h2>Equipo de Desarrollo</h2>
-        <div class="row text-center">
-            <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Alvaro Lopez<br><small>Full-Stack Developer</small></p>
+      
+    <section class="row mb-5">
+      <h2>Equipo de desarrollo</h2>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Alvaro Lopez</h4>
+          <h6>Full-Stack Developer</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
         </div>
-        <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Priscilla Sarapura<br><small>Backend Developer</small></p>
-        </div>
-        <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Fiorella Corti<br><small>UX/UI Developer</small></p>
-        </div>
-        <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Nicolas Ocampo<br><small>Backend Developer</small></p>
-        </div>
-        <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Ezequiel Pantoja<br><small>Backend Developer</small></p>
-        </div>
-        <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Santiago Herraez<br><small>Backend Developer</small></p>
-        </div>
-        <div class="col-md-3">
-            <i class="bi bi-person-circle" style="font-size: 3rem;"></i>
-            <p class="mt-2">Bautista Rangeon<br><small>Backend Developer</small></p>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
         </div>
       </div>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Priscilla Sarapura</h4>
+          <h6>analista de sistemas</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
+        </div>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Fiorella Corti</h4>
+          <h6>analista de sistemas</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
+        </div>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Nicolas Ocampo</h4>
+          <h6>Backend Developer</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
+        </div>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Ezequiel Pantoja</h4>
+          <h6>Backend Developer</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
+        </div>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Santiago Herraez</h4>
+          <h6>Backend Developer</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
+        </div>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="personal-content">
+          <span></span>
+          <div class="img">
+            <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto persona">
+
+          </div>
+          <h4>Bautista Rangeon</h4>
+          <h6>Backend Developer</h6>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
+        </div>
+        <div class="links"> 
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+      </div>
+
     </section>
 </div>
 
@@ -95,3 +221,7 @@
 
 {% endblock %}
   
+{% block extrascripts %}
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+{% endblock %}
