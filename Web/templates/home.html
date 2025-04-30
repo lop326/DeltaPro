@@ -4,16 +4,20 @@
 
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 {% block content %}
-<main class="container mt-5">
-    <div class="text-center">
-      <h1 class="display-4 fw-bold">¡Bienvenido a DeltaPro!</h1>
-      
-      <a href="{% url 'nosotros' %}" class="btn btn-primary btn-lg mt-3">Conocé más</a>
-    </div>
+<div class="header-content">
+  <div class="header-info">
+    <a class="btn btn-primary mb-5" href="{% url 'nosotros'%}">Conocenos</a>
+  </div>
+    
+</div>
 
-    <hr class="my-5">
+
+<div class="container">
+
+
 
     <div class="row text-center">
       <div class="col-md-4">
@@ -47,8 +51,8 @@
       <h2>DeltaPro, haciendo tus calculos mas simples</h2>
       <div class="card">
         <div class="face front">
-          <img src="../media/perfiles/DeltaPro_transparente.png" alt="metodo raices">
-          <h3>Raices</h3>
+          <img src="../static/videos/Biseccion_animado.gif" alt="metodo raices">
+          
         </div>
         <div class="face back">
           <h3>Raices</h3>
@@ -61,8 +65,8 @@
       </div>
       <div class="card">
         <div class="face front">
-          <img src="../media/perfiles/DeltaPro_transparente.png" alt="metodo sistemas">
-          <h3>Sistemas</h3>
+          <img src="../static/videos/GIF006-PLANO-QUE-PASA-POR-EL-ORIGEN-1.gif" alt="metodo sistemas">
+          
         </div>
         <div class="face back">
           <h3>Sistemas de ecuaciones</h3>
@@ -75,8 +79,8 @@
       </div>
       <div class="card">
         <div class="face front">
-          <img src="../media/perfiles/DeltaPro_transparente.png" alt="foto 1">
-          <h3>metodo 1</h3>
+          <img src="../static/videos/GIF-ESTUDIO-DE-FUNCIÓN.gif" alt="foto 1" style="  width: 100%;height: 100%;object-fit: cover; display: block;">
+          
         </div>
         <div class="face back">
           <h3>metodo 1</h3>
@@ -91,37 +95,55 @@
 
     <!-- Sección: Acerca del Proyecto -->
     <section class="mb-5">
-      <h2>Objetivo</h2>
-      <p>
-        DeltaPro fue desarrollado con el objetivo de brindar una plataforma educativa interactiva 
-        para estudiantes, docentes y profesionales que necesiten resolver problemas matemáticos mediante 
-        métodos numéricos.
-      </p>
+      <div class="info-container">
+        <img src="{% static 'images/objective.jpg' %}" alt="">
+        <div class="info">
+          <h2>Objectivo</h2>
+          <p>
+            DeltaPro fue desarrollado con el objetivo de brindar una plataforma educativa interactiva 
+            para estudiantes, docentes y profesionales que necesiten resolver problemas matemáticos mediante 
+            métodos numéricos.
+        </div>
+
+      </div>
     </section>
 
     <!-- Sección: ¿Qué Problemas Resuelve? -->
+
     <section class="mb-5">
-      <h2>¿Qué Problemas Resuelve Nuestra Aplicación?</h2>
-      <ul>
-        <li>Automatiza cálculos complejos como raíces de ecuaciones o sistemas de ecuaciones.</li>
-        <li>Disminuye el margen de error en cálculos realizados a mano.</li>
-        <li>Sirve como herramienta de apoyo para enseñar y aprender métodos numéricos.</li>
-      </ul>
+      <div class="info-container">
+        <div class="info">
+          <h2>¿Qué Problemas Resuelve Nuestra Aplicación?</h2>
+          <ul>
+            <li>Automatiza cálculos complejos como raíces de ecuaciones o sistemas de ecuaciones.</li>
+            <li>Disminuye el margen de error en cálculos realizados a mano.</li>
+            <li>Sirve como herramienta de apoyo para enseñar y aprender métodos numéricos.</li>
+          </ul>
+        </div>
+        <img src="{% static 'images/funciones.jpeg' %}" alt="">
+
+      </div>
     </section>
+
 
     <!-- Sección: ¿Quiénes la Pueden Usar? -->
+
     <section class="mb-5">
-      <h2>¿Quiénes la Pueden Usar?</h2>
-      <p>
-        La aplicación está pensada para:
-      </p>
-      <ul>
-        <li>Estudiantes de ingeniería, física y carreras afines.</li>
-        <li>Docentes universitarios y secundarios.</li>
-        <li>Profesionales que requieran soluciones rápidas a problemas numéricos.</li>
-      </ul>
+      <div class="info-container">
+        <img src="{% static 'images/personas.jpg' %}" alt="">
+        <div class="info">
+          <h2>¿Quiénes la Pueden Usar?</h2>
+          <ul>
+            <li>Estudiantes de ingeniería, física y carreras afines.</li>
+            <li>Docentes universitarios y secundarios.</li>
+            <li>Profesionales que requieran soluciones rápidas a problemas numéricos.</li>
+          </ul>
+        </div>
+
+      </div>
     </section>
 
+</div>
 {% endblock %}
 
 {% block extrascripts %}
