@@ -15,6 +15,7 @@ class DatosUsuario(models.Model):
     dni = models.CharField(max_length=10)
     direccion = models.CharField(max_length=255)
     telefono = models.CharField(max_length=15)
+    imagen = models.ImageField(upload_to='perfiles/', null=True, blank=True)
 
 
     def __str__(self):

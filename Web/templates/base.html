@@ -60,16 +60,31 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
                   </div>
                   <div class="offcanvas-body">
-                      <div class="photo-user">
-                        <i class="bi bi-person-circle bi-user-config"></i>
-                      </div>
-                      
-                      <div class="dates-container">
-                        <form action="{% url 'actualizar_perfil' %}" method="post" id="mi-formulario">
-                          {% csrf_token %}
 
+                      <div class="dates-container">
+                        <form action="{% url 'actualizar_perfil' %}" method="post" id="mi-formulario" enctype="multipart/form-data">
+                          {% csrf_token %}
+          
+                          <div class="photo-user text-center mb-3 position-relative">
+                            {% if user_data.imagen %}
+                              <img src="{{ user_data.imagen.url }}"  alt="foto perfil" class="img-thumbnail rounded-circle" style="width: 200px; height: 200px;">
+                            {% else %}
+                              <i class="bi bi-person-circle" style="font-size: 100px;"></i>
+                            {% endif %}
+                          <!-- Ícono flotante para cambiar imagen -->
+                          <label for="imagen" class="position-absolute bottom-0 end-0" style="cursor: pointer; ">
+                            <i class="bi bi-camera-fill" style="font-size: 30px; color: black;"></i>
+                          </label>
+                          
+                          <!-- Input oculto -->
+                          <input type="file" name="imagen" id="imagen" class="d-none">
+                       
+                          </div>
+                          
+                            
                         <p class="data_user text-center">{{ request.user.first_name }} {{request.user.last_name }}</p>
-                        <div class="field">
+
+                          <div class="field">
                           <hr class="my-1"> 
                           <label>Nombre de usuario: </label><br>
                           <span class="display-text">{{ request.user.username }}</span>

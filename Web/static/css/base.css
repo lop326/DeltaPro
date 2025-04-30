@@ -92,11 +92,13 @@ h2, h3 {
     background-color: var(--color-celeste);
     border: none;
     color: var(--color-oscuro);
+    transition: all ease 300ms;
 }
 .btn-primary:hover {
     background-color: var(--color-rojo);
     border: none;
     color: white;
+    transform: scale(1.1);
 }
 
 

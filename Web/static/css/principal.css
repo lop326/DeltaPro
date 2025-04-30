@@ -14,9 +14,9 @@ a{
     color: white;
 
 }
-h1{
+.title-app h1{
     font-weight: 300;
-    font-size: 60px;
+    font-size: 100px;
     line-height: 1.2;
     margin-bottom: 5px;
 
@@ -43,7 +43,7 @@ h1{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: url("../img/fondo_principal.png") no-repeat center center/cover;
+    background: url("../images/fondo_principal.png") no-repeat center center/cover;
     
 
 }
@@ -91,7 +91,7 @@ h1{
 #about {
     padding: 40px;
     text-align: center;
-    background-color: #9918184a;
+    background-color:#fff;
 
 }
 #about p {

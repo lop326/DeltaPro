@@ -65,7 +65,11 @@ def actualizar_perfil(request):
             datos = DatosUsuario.objects.get(user=request.user)
 
             datos.telefono = request.POST.get('telefono')
-        
+            if 'imagen' in request.FILES:
+                if datos.imagen:
+                    datos.imagen.delete(save=False)
+                datos.imagen = request.FILES['imagen']
+            
             datos.save()
         except DatosUsuario.DoesNotExist:
             pass
