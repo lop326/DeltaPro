@@ -22,6 +22,7 @@ urlpatterns = [
     path('regula_falsi/', views.regula_falsi ,name='regula_falsi'),
     path('jacobi/', views.jacobi ,name='jacobi'),
     path('newton/', views.newton ,name='newton'),
+    path('prueba/', views.prueba ,name='prueba'),
 
 ] 
 

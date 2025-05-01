@@ -5,7 +5,7 @@
     --color-texto: #212529;      /* Gris oscuro */
   }
 .container {
-    background-color: var(--color-fondo);
+   
     color: var(--color-texto);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }

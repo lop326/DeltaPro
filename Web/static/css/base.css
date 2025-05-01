@@ -6,7 +6,7 @@
     --color-rojo: #991818;
   }
 body{
-    background-color: var(--color-claro);
+    background-color: white;
     color: var(--color-oscuro);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;

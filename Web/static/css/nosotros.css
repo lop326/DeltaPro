@@ -8,9 +8,10 @@
   }
 
   .container {
-    background-color: var(--color-claro);
+
     color: var(--color-oscuro);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
   }
   
   h1 {

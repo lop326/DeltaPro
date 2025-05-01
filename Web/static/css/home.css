@@ -1,5 +1,5 @@
 .header-content {
-    background-image: url(../images/header1.png);
+    background-image: url(../images/headerHome1.png);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,14 +17,15 @@
     height: 300px;
     display: flex;
     flex-direction: row;
-    padding: 15px;
-    background: var(--color-gris-azulado);
-    box-shadow: 0 4px 8px var(--color-oscuro);
-
+    padding: 20px 70px;
+    background: var(--color-rojo);
+    box-shadow: 0 25px 50px rgba(0, 0, 0,0.8); 
 }
+
 .info-container img{
     width: 400px;
     height: 100%;
+    border-radius: 10px;
 }
 
 .info-container .info{
@@ -34,7 +35,14 @@
   
 }
 .info-container .info h2{
+    color: #9DD3DF;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-bottom: 15px;
+}
+.info-container .info p{
+    color: white;
+}
+.info-container .info ul{
+    color: white;
 }

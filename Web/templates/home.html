@@ -5,6 +5,8 @@
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/cards.css' %}">
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 {% endblock %}
 {% block content %}
 <div class="header-content">
@@ -16,10 +18,7 @@
 
 
 <div class="container">
-
-
-
-    <div class="row text-center">
+    <div class="row text-center mt-4">
       <div class="col-md-4">
         {% if number_users %}
           <span style="font-size: 105px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">{{ number_users }}</span>
@@ -47,9 +46,9 @@
     </div>
 
     <hr class="my-5">
-    <section class="row mb-5" style="align-items: center; justify-content: center;">
+    <section class="row mb-5" style="align-items: center; justify-content: center;" >
       <h2>DeltaPro, haciendo tus calculos mas simples</h2>
-      <div class="card">
+      <div class="card" data-aos="slide-right" data-aos-delay="150">
         <div class="face front">
           <img src="../static/videos/Biseccion_animado.gif" alt="metodo raices">
           
@@ -63,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade" data-aos-delay="200">
         <div class="face front">
           <img src="../static/videos/GIF006-PLANO-QUE-PASA-POR-EL-ORIGEN-1.gif" alt="metodo sistemas">
           
@@ -77,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" data-aos="slide-left"  data-aos-duration="900">
         <div class="face front">
           <img src="../static/videos/GIF-ESTUDIO-DE-FUNCIÓN.gif" alt="foto 1" style="  width: 100%;height: 100%;object-fit: cover; display: block;">
           
@@ -93,9 +92,17 @@
 
     </section>
 
+ 
+
+</div>
+ 
+
+  
+<div class="dates-container">
+
     <!-- Sección: Acerca del Proyecto -->
-    <section class="mb-5">
-      <div class="info-container">
+  <section class="mb-4">
+      <div class="info-container mb-4" data-aos="slide-left"  data-aos-duration="900" >
         <img src="{% static 'images/objective.jpg' %}" alt="">
         <div class="info">
           <h2>Objectivo</h2>
@@ -103,47 +110,42 @@
             DeltaPro fue desarrollado con el objetivo de brindar una plataforma educativa interactiva 
             para estudiantes, docentes y profesionales que necesiten resolver problemas matemáticos mediante 
             métodos numéricos.
+          </p>
         </div>
-
+  
       </div>
-    </section>
-
-    <!-- Sección: ¿Qué Problemas Resuelve? -->
-
-    <section class="mb-5">
-      <div class="info-container">
-        <div class="info">
-          <h2>¿Qué Problemas Resuelve Nuestra Aplicación?</h2>
-          <ul>
-            <li>Automatiza cálculos complejos como raíces de ecuaciones o sistemas de ecuaciones.</li>
-            <li>Disminuye el margen de error en cálculos realizados a mano.</li>
-            <li>Sirve como herramienta de apoyo para enseñar y aprender métodos numéricos.</li>
-          </ul>
-        </div>
-        <img src="{% static 'images/funciones.jpeg' %}" alt="">
-
+<!-- Sección: ¿Qué Problemas Resuelve? -->
+ 
+    <div class="info-container mb-4" data-aos="slide-right"  data-aos-duration="900" style="background-color:#C9D1D3;">
+      <div class="info">
+        <h2 style="color: #991818;">¿Qué Problemas Resuelve Nuestra Aplicación?</h2>
+        <ul style="color: black;">
+          <li>Automatiza cálculos complejos como raíces de ecuaciones o sistemas de ecuaciones.</li>
+          <li>Disminuye el margen de error en cálculos realizados a mano.</li>
+          <li>Sirve como herramienta de apoyo para enseñar y aprender métodos numéricos.</li>
+        </ul>
       </div>
-    </section>
+      <img src="{% static 'images/funciones.jpeg' %}" alt="">
 
-
-    <!-- Sección: ¿Quiénes la Pueden Usar? -->
-
-    <section class="mb-5">
-      <div class="info-container">
-        <img src="{% static 'images/personas.jpg' %}" alt="">
-        <div class="info">
-          <h2>¿Quiénes la Pueden Usar?</h2>
-          <ul>
-            <li>Estudiantes de ingeniería, física y carreras afines.</li>
-            <li>Docentes universitarios y secundarios.</li>
-            <li>Profesionales que requieran soluciones rápidas a problemas numéricos.</li>
-          </ul>
-        </div>
-
+    </div>
+  
+  <!-- Sección: ¿Quiénes la Pueden Usar? -->
+  
+    <div class="info-container mb-4" data-aos="slide-left"  data-aos-duration="900">
+      <img src="{% static 'images/personas.jpg' %}" alt="">
+      <div class="info">
+        <h2>¿Quiénes la Pueden Usar?</h2>
+        <ul>
+          <li>Estudiantes de ingeniería, física y carreras afines.</li>
+          <li>Docentes universitarios y secundarios.</li>
+          <li>Profesionales que requieran soluciones rápidas a problemas numéricos.</li>
+        </ul>
       </div>
-    </section>
 
+    </div>
+  </section>
 </div>
+  
 {% endblock %}
 
 {% block extrascripts %}
@@ -151,4 +153,10 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
           
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: false
+  });
+</script>
 {% endblock %}
