@@ -31,8 +31,8 @@ body{
 
 
 header{
-    background-color: var(--color-rojo);
-    color: #F7F7F7;
+  background: linear-gradient(to left,#991818,#000000);
+  color: #F7F7F7;
 }
 
 

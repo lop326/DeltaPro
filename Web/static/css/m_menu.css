@@ -1,19 +1,22 @@
-.descripcion {
-    display: none;
-    background-color: #f8f9fa;
-    border-left: 5px solid #9c1c1c;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    border-radius: 8px;
+:root {
+  --color-claro: #F7F7F7;
+  --color-gris-azulado: #C9D1D3;
+  --color-celeste: #7fc0ce;
+  --color-oscuro: #3B3737;
+  --color-rojo: #991818;
   }
-  .btn-toggle {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #9c1c1c;
-    background: none;
-    border: none;
-    cursor: pointer;
+  body{
+  background: linear-gradient(to left,#991818,#000000); /*efecto gradiente hacia la derecha*/
+  color: #F7F7F7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
   }
-  .btn-toggle:hover {
-    text-decoration: underline;
+  
+  
+  
+  header{
+    background: linear-gradient(to left,#991818,#000000);
+  color: black;
   }
+  
