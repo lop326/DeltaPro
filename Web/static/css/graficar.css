@@ -1,0 +1,120 @@
+:root {
+  --color-claro: #F7F7F7;
+  --color-gris-azulado: #C9D1D3;
+  --color-celeste: #9DD3DF;
+  --color-oscuro: #3B3737;
+  --color-rojo: #991818;
+}
+
+header{
+  background: var(--color-rojo);
+}
+.cont-grafico{
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    color: #fff;
+  }
+
+  #menu {
+    width: 320px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #3B3737, #abafc7);
+
+  }
+
+  h2, h3 {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .input-funcion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .input-funcion input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.2s ease;
+  }
+
+  .input-funcion button {
+    padding: 4px 10px;
+    background: #fff;
+    color: #2c2f45;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .input-funcion button:hover {
+    background: #ccc;
+  }
+
+  .botones button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 7px;
+    font-size: 1rem;
+    background: #ffffff;
+    color: #2c2f45;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .botones button:hover {
+    background: #ddd;
+  }
+
+  #teclado {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  #teclado button {
+    flex: 1 0 30%;
+    padding: 6px;
+    font-size: 0.85rem;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  #teclado button:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+  #grafico {
+    flex: 1;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+

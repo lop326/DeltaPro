@@ -125,5 +125,8 @@ def newton(request):
     return render(request, 'newton.html')
 
 @login_required
+def graficar(request):
+    return render(request, 'graficar.html' )
+@login_required
 def prueba(request):
     return render(request, 'prueba.html')

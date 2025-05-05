@@ -2,63 +2,257 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ejemplo con AOS</title>
-
-  <!-- AOS CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+  <title>Graficador Matemático</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-      margin-top: 2000px;
+      display: flex;
+      height: 100vh;
+      color: #fff;
     }
 
-    .section {
-      padding: 100px 20px;
-      text-align: center;
-      background: white;
-      margin: 50px;
+    #menu {
+      width: 320px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, #1f2235, #555869);
+
+    }
+
+    h2, h3 {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .input-funcion {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .input-funcion input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 2px solid #555;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      outline: none;
+      font-size: 1rem;
+      transition: border 0.2s ease;
     }
 
-    h1 {
-      margin-bottom: 20px;
+    .input-funcion button {
+      padding: 4px 10px;
+      background: #fff;
+      color: #2c2f45;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .input-funcion button:hover {
+      background: #ccc;
+    }
+
+    .botones button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 7px;
+      font-size: 1rem;
+      background: #ffffff;
+      color: #2c2f45;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .botones button:hover {
+      background: #ddd;
+    }
+
+    #teclado {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    #teclado button {
+      flex: 1 0 30%;
+      padding: 6px;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #teclado button:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    #grafico {
+      flex: 1;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <div class="section" data-aos="fade" data-aos-delay="500">
-    <h1>Bienvenido</h1>
-    <p>Este es un ejemplo de animación al hacer scroll con AOS.</p>
+  <div id="menu">
+    <h2>Funciones</h2>
+    <div id="contenedor-funciones">
+      <div class="input-funcion">
+        <input type="text" placeholder="Ej: sin(x)" onfocus="seleccionarInput(this)">
+        <button onclick="agregarInput()">+</button>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button onclick="graficar()">Graficar</button>
+      <button onclick="borrarFunciones()">Borrar funciones</button>
+    </div>
+
+    <h3>Teclado</h3>
+    <div id="teclado">
+      <button onclick="insertar('sin()')">sin</button>
+      <button onclick="insertar('cos()')">cos</button>
+      <button onclick="insertar('tan()')">tan</button>
+      <button onclick="insertar('log()')">log</button>
+      <button onclick="insertar('sqrt()')">√</button>
+      <button onclick="insertar('^')">^</button>
+      <button onclick="insertar('*')">×</button>
+      <button onclick="insertar('/')">÷</button>
+      <button onclick="insertar('+')">+</button>
+      <button onclick="insertar('-')">−</button>
+      <button onclick="insertar('pi')">π</button>
+      <button onclick="insertar('e')">e</button>
+      <button onclick="insertar('x')">x</button>
+      <button onclick="insertar('(')">(</button>
+      <button onclick="insertar(')')">)</button>
+    </div>
   </div>
 
-  <div class="section" data-aos="zoom-out" data-aos-delay="200">
-    <h1>Contenido 2</h1>
-    <p>Este bloque aparece con zoom y un pequeño retraso.</p>
-  </div>
+  <div id="grafico"></div>
 
-  <div class="section" data-aos="flip-left" data-aos-delay="400" data-aos-duration="1000">
-    <h1>Contenido 3</h1>
-    <p>Este bloque tiene un efecto de giro lento.</p>
-  </div>
-  <div class="section" data-aos="slide-right" data-aos-delay="400" data-aos-duration="1000">
-    <h1>Contenido 3</h1>
-    <p>Este bloque tiene un efecto de giro lento.</p>
-  </div>
-
-  <!-- AOS JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      once: false
+    let baseLayout = {
+      margin: { t: 30 },
+      xaxis: { title: 'x', zeroline: true },
+      yaxis: { title: 'f(x)', zeroline: true },
+      dragmode: 'pan'
+    };
+
+    Plotly.newPlot('grafico', [], baseLayout, {
+      responsive: true,
+      displayModeBar: true,
+      displaylogo: false,
+      modeBarButtonsToAdd: ['resetScale2d']
     });
-    
+
+    let colores = [
+      '#e74c3c', '#2ecc71', '#3498db', '#f39c12', '#9b59b6',
+      '#1abc9c', '#e67e22', '#34495e', '#d35400', '#7f8c8d'
+    ];
+    let colorIndex = 0;
+    let inputActivo = null;
+
+    function agregarInput() {
+      const contenedor = document.getElementById('contenedor-funciones');
+      const div = document.createElement('div');
+      const color = colores[colorIndex % colores.length];
+      colorIndex++;
+
+      div.className = 'input-funcion';
+      div.innerHTML = `
+        <input type="text" placeholder="Ej: x^2" style="border-color: ${color}" onfocus="seleccionarInput(this)">
+        <button onclick="eliminarInput(this)">−</button>
+      `;
+      contenedor.appendChild(div);
+    }
+
+    function eliminarInput(boton) {
+      const div = boton.parentNode;
+      div.remove();
+    }
+
+    function seleccionarInput(input) {
+      inputActivo = input;
+    }
+
+    function insertar(simbolo) {
+      if (inputActivo) {
+        const start = inputActivo.selectionStart;
+        const end = inputActivo.selectionEnd;
+        const text = inputActivo.value;
+        inputActivo.value = text.slice(0, start) + simbolo + text.slice(end);
+        inputActivo.focus();
+        inputActivo.setSelectionRange(start + simbolo.length, start + simbolo.length);
+      }
+    }
+
+    function graficar() {
+      const inputs = document.querySelectorAll('#contenedor-funciones input');
+      const trazas = [];
+
+      inputs.forEach((input, i) => {
+        const expr = input.value.trim();
+        const color = input.style.borderColor || colores[i % colores.length];
+
+        if (expr.length === 0) return;
+
+        const x = [], y = [];
+
+        for (let xi = -10; xi <= 10; xi += 0.1) {
+          x.push(xi);
+          try {
+            y.push(math.evaluate(expr, { x: xi }));
+          } catch {
+            y.push(null);
+          }
+        }
+
+        trazas.push({
+          x: x,
+          y: y,
+          mode: 'lines',
+          type: 'scatter',
+          name: expr,
+          line: { color: color }
+        });
+      });
+
+      Plotly.react('grafico', trazas, baseLayout);
+    }
+
+    function borrarFunciones() {
+      Plotly.react('grafico', [], baseLayout);
+    }
   </script>
+
 </body>
 </html>
