@@ -46,3 +46,15 @@
 .info-container .info ul{
     color: white;
 }
+
+.contador{
+    font-size: 105px; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.porcentaje{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

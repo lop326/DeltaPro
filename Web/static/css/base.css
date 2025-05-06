@@ -98,7 +98,6 @@ h2, h3 {
 }
 .btn-primary:hover {
     background-color: var(--color-rojo);
-    border: none;
     color: white;
     transform: scale(1.1);
 }

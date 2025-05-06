@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/nosotros.css' %}">
 <link rel="stylesheet" href="{% static 'css/cards.css' %}">
 <link rel="stylesheet" href="{% static 'css/slider.css' %}">
-
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
 
 <div class="container mt-5">
   <div class="text-center">
-    <img src="../static/images/logo_Aurea.png" alt="logo_Aurea" style="width: 400px; height: 400px; margin-top: 30px; border-radius: 20px;">
+    <img src="{% static 'images/logo_Aurea.png' %}" alt="logo_Aurea" style="width: 400px; height: 400px; margin-top: 30px; border-radius: 20px;" data-aos="zoom-in" data-aos-duration="1200">
     <p class="text-center lead mt-5">
       En AUREA nos especializamos en el desarrollo de software, soluciones web personalizadas y el mantenimiento integral de sistemas digitales. Nuestro compromiso con la calidad y la innovación tecnológica nos permite ofrecer servicios eficientes y adaptados a las necesidades de cada cliente. 
       Contamos con un equipo altamente profesional y capacitado, dedicado a brindar soluciones confiables con un enfoque en la excelencia y la mejora continua.
@@ -23,7 +23,7 @@
   
   <hr class="my-5">
 
-  <div class="projects container"> 
+  <div class="projects container" data-aos="fade"  data-aos-duration="1000"> 
 
     <h2>Nuestros proyectos</h2>
     <div class="swiper mySwiper">
@@ -72,78 +72,86 @@
     
   </div>
   
-
+</div>
   <hr class="my-5">
   
-  <h2>Nuestros servicios</h2>
+  <h2 data-aos="fade" data-aos-duration="900">Nuestros servicios</h2>
   
-  <div class="row mb-5" style="align-items: center; justify-content: center;">
-    <div class="card">
-      <div class="face front">
-        <img src="../static/images/desarrollo_software.webp" alt="servicio 1">
-        
+  <div class="col mb-5">
+    <div class="row" data-aos="slide-left" data-aos-duration="900" style="align-items: center; justify-content: center;"> 
+      <div class="card">
+        <div class="face front">
+          <img src="../static/images/desarrollo_software.webp" alt="servicio 1">
+          
+        </div>
+        <div class="face back">
+          <h3>Desarrollo de Software</h3>
+          <p>Informatizamos tu empresa.</p>
+        </div>
       </div>
-      <div class="face back">
-        <h3>Desarrollo de Software</h3>
-        <p>Informatizamos tu empresa.</p>
+      <div class="card">
+        <div class="face front">
+          <img src="../static/images/soporte.avif" alt="servicio 2">
+          
+        </div>
+        <div class="face back">
+          <h3>Mantenimiento y soporte</h3>
+          <p>Aseguramos un correcto funcionamiento y actualizaciones.</p>
+        </div>
       </div>
+      <div class="card">
+        <div class="face front">
+          <img src="../static/images/diseñoWeb.jpg" alt="servicio 3">
+          
+        </div>
+        <div class="face back">
+          <h3>Diseño y desarrollo de UX/UI</h3>
+          <p>Mejoramos la interaccion de los usuario de tu empresa.</p>
+        </div>
+      </div>  
+
     </div>
-    <div class="card">
-      <div class="face front">
-        <img src="../static/images/soporte.avif" alt="servicio 2">
+    <div class="row" data-aos="slide-right" data-aos-duration="900" style="align-items: center; justify-content: center;"> 
+      <div class="card">
+        <div class="face front">
+          <img src="../static/images/analisisDatos.jpg" alt="servicio 4">
+          
+        </div>
+        <div class="face back">
+          <h3>Análisis de datos</h3>
+          <p>Transformamos tus datos en decisiones inteligentes.</p>
+        </div>
+      </div> 
+      <div class="card">
+        <div class="face front">
+          <img src="../static/images/automatizacion.avif" alt="servicio 5">
+          
+        </div>
+        <div class="face back">
+          <h3>Automatizacion de procesos</h3>
+          <p>Mejoramos la eficiencia en tu empresa.</p>
+        </div>
+      </div>  
+      <div class="card">
+        <div class="face front">
+          <img src="../static/images/desarrollo_sistemas.png" alt="servicio 6">
         
-      </div>
-      <div class="face back">
-        <h3>Mantenimiento y soporte</h3>
-        <p>Aseguramos un correcto funcionamiento y actualizaciones.</p>
-      </div>
+        </div>
+        <div class="face back">
+          <h3>Desarrollo de sistemas a medida</h3>
+          <p>Desarrollo de sistemas adecuado al rubro.</p>
+        </div>
+      </div>  
+
     </div>
-    <div class="card">
-      <div class="face front">
-        <img src="../static/images/diseñoWeb.jpg" alt="servicio 3">
-        
-      </div>
-      <div class="face back">
-        <h3>Diseño y desarrollo de UX/UI</h3>
-        <p>Mejoramos la interaccion de los usuario de tu empresa.</p>
-      </div>
-    </div>  
-    <div class="card">
-      <div class="face front">
-        <img src="../static/images/analisisDatos.jpg" alt="servicio 4">
-        
-      </div>
-      <div class="face back">
-        <h3>Análisis de datos</h3>
-        <p>Transformamos tus datos en decisiones inteligentes.</p>
-      </div>
-    </div> 
-    <div class="card">
-      <div class="face front">
-        <img src="../static/images/automatizacion.avif" alt="servicio 5">
-        
-      </div>
-      <div class="face back">
-        <h3>Automatizacion de procesos</h3>
-        <p>Mejoramos la eficiencia en tu empresa.</p>
-      </div>
-    </div>  
-    <div class="card">
-      <div class="face front">
-        <img src="../static/images/desarrollo_sistemas.png" alt="servicio 6">
-      
-      </div>
-      <div class="face back">
-        <h3>Desarrollo de sistemas a medida</h3>
-        <p>Desarrollo de sistemas adecuado al rubro.</p>
-      </div>
-    </div>         
+    
+           
   
 
   </div>
       <!-- Sección: Equipo de Desarrollo -->
       
-    <section class="row mb-5">
+    <section class="row mb-5" data-aos="fade-up" data-aos-duration="900">
       <h2>Equipo de desarrollo</h2>
       <div class="profile-card">
         <div class="personal-content">
@@ -225,7 +233,7 @@
 
           </div>
           <h4>Ezequiel Pantoja</h4>
-          <h6>Backend Developer</h6>
+          <h6>UI/UX designer</h6>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
         </div>
         <div class="links"> 
@@ -261,7 +269,7 @@
 
           </div>
           <h4>Bautista Rangeon</h4>
-          <h6>Backend Developer</h6>
+          <h6>Project Manager</h6>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, dolore?</p>
         </div>
         <div class="links"> 
@@ -283,5 +291,10 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="{% static 'scripts/slider.js' %}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: false
+  });
+</script>
 {% endblock %}
